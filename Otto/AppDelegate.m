@@ -21,7 +21,7 @@
   [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
   [[UINavigationBar appearance] setTranslucent:false];
   
-  [[UILabel appearance] setFont:[UIFont fontWithName:@"Avenir" size:17.0]];
+  [[UILabel appearance] setFont:[UIFont fontWithName:@"Avenir" size:16.0]];
   return YES;
 }
 
