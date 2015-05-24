@@ -9,7 +9,7 @@
 #import "BurgerViewController.h"
 #import "MenuTableViewController.h"
 
-@interface BurgerViewController ()
+@interface BurgerViewController () <MenuPressedDelegate>
 
 @property (strong, nonatomic) UIViewController *topViewController;
 @property (strong, nonatomic) UIButton *burgerButton;
@@ -39,9 +39,10 @@ NSInteger const slideRightBuffer = 300;
   self.selectedRow = 0;
   
   UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
-  [button setBackgroundImage:[UIImage imageNamed:@"burger"] forState:UIControlStateNormal];
+  [button setBackgroundImage:[UIImage imageNamed:@"burgermenuicon"] forState:UIControlStateNormal];
   [button addTarget:self action:@selector(burgerButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.searchVC.view addSubview:button];
+  
   self.burgerButton = button;
   
   self.tapItClose = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closePanel)];
