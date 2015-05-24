@@ -38,7 +38,7 @@ NSInteger const slideRightBuffer = 300;
   self.topViewController = self.searchVC;
   self.selectedRow = 0;
   
-  UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
+  UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 45, 45)];
   [button setBackgroundImage:[UIImage imageNamed:@"burgermenuicon"] forState:UIControlStateNormal];
   [button addTarget:self action:@selector(burgerButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.searchVC.view addSubview:button];
