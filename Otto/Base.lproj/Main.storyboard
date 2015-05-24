@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="oNt-2v-jwf">
+                            <tableViewSection id="oNt-2v-jwf">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="X4s-Nl-QNn">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -74,25 +74,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ottoicon" translatesAutoresizingMaskIntoConstraints="NO" id="mwb-7f-UdF">
-                                                    <rect key="frame" x="16" y="16" width="100" height="100"/>
+                                                    <rect key="frame" x="13" y="16" width="85" height="85"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="SAu-2M-Ncx"/>
-                                                        <constraint firstAttribute="height" constant="100" id="oAa-fG-k7W"/>
+                                                        <constraint firstAttribute="width" constant="85" id="SAu-2M-Ncx"/>
+                                                        <constraint firstAttribute="height" constant="85" id="oAa-fG-k7W"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ottoinsure - simply pay for the insurance converage you use" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-f3-tCd">
-                                                    <rect key="frame" x="131" y="39" width="150" height="54"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ottoinsure - simply pay for the insurance coverage you use" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-f3-tCd">
+                                                    <rect key="frame" x="113" y="28" width="180" height="62"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="nOA-xC-tnk"/>
+                                                        <constraint firstAttribute="width" constant="180" id="nOA-xC-tnk"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CVM-f3-tCd" firstAttribute="leading" secondItem="mwb-7f-UdF" secondAttribute="trailing" constant="15" id="7bW-ll-PU1"/>
-                                                <constraint firstItem="mwb-7f-UdF" firstAttribute="leading" secondItem="XNg-Tb-9tJ" secondAttribute="leadingMargin" constant="8" id="OBC-ik-DtT"/>
+                                                <constraint firstItem="mwb-7f-UdF" firstAttribute="leading" secondItem="XNg-Tb-9tJ" secondAttribute="leadingMargin" constant="5" id="OBC-ik-DtT"/>
                                                 <constraint firstItem="mwb-7f-UdF" firstAttribute="top" secondItem="CVM-f3-tCd" secondAttribute="top" id="TfM-0F-dz9"/>
                                                 <constraint firstItem="mwb-7f-UdF" firstAttribute="centerY" secondItem="CVM-f3-tCd" secondAttribute="centerY" id="qXO-mf-G5V"/>
                                                 <constraint firstItem="mwb-7f-UdF" firstAttribute="top" secondItem="XNg-Tb-9tJ" secondAttribute="topMargin" constant="8" id="zHb-ax-cw5"/>
@@ -106,7 +106,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="jHq-4q-AgC">
+                            <tableViewSection id="jHq-4q-AgC">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="02v-P3-tmA">
                                         <autoresizingMask key="autoresizingMask"/>
