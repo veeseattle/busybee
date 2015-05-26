@@ -98,7 +98,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="5m2-Io-DBP"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="ottoactivity" id="5m2-Io-DBP"/>
                     <navigationItem key="navigationItem" id="UvK-Pb-5Ix"/>
                     <connections>
                         <outlet property="ottobiglabel" destination="lzG-qZ-8hq" id="kV2-OB-7pP"/>
@@ -467,6 +467,7 @@
     </scenes>
     <resources>
         <image name="OttoIsRunning" width="214" height="212"/>
+        <image name="ottoactivity" width="120" height="130"/>
         <image name="ottoicon" width="277" height="262"/>
         <image name="ottostart" width="189" height="191"/>
     </resources>
