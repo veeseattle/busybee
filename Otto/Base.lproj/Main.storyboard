@@ -101,6 +101,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="ottoactivity" id="5m2-Io-DBP"/>
                     <navigationItem key="navigationItem" id="UvK-Pb-5Ix"/>
                     <connections>
+                        <outlet property="ottoImageView" destination="pbH-ny-dxc" id="p9R-V0-CVU"/>
                         <outlet property="ottobiglabel" destination="lzG-qZ-8hq" id="kV2-OB-7pP"/>
                     </connections>
                 </viewController>

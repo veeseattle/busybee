@@ -10,6 +10,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ottobiglabel;
+@property (weak, nonatomic) IBOutlet UIImageView *ottoImageView;
 
 @end
 
@@ -20,6 +21,17 @@
   
   self.ottobiglabel.font = [UIFont fontWithName:@"Avenir-Black" size:35.0];
   
+ NSArray *imageNames = @[@"OttoIsRunning.png", @"OttoIsRunning2.png", @"OttoIsRunning3.png", @"OttoIsRunning4.png"];
+  
+  NSMutableArray *images = [[NSMutableArray alloc] init];
+  for (int i = 0; i < imageNames.count; i++) {
+    [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
+  }
+  
+  self.ottoImageView.animationImages = images;
+  self.ottoImageView.animationDuration = 3.0;
+  
+  [self.ottoImageView startAnimating];
   
 }
 
