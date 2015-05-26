@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *ottobiglabel;
 
 @end
 
@@ -16,7 +17,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
+  
+  self.ottobiglabel.font = [UIFont fontWithName:@"Avenir-Black" size:35.0];
+  
+  
 }
 
 - (void)didReceiveMemoryWarning {

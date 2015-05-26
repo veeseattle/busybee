@@ -8,6 +8,7 @@
 
 #import "BurgerViewController.h"
 #import "MenuTableViewController.h"
+#import "StartStopViewController.h"
 
 @interface BurgerViewController () <MenuPressedDelegate>
 
@@ -19,6 +20,7 @@
 @property (strong, nonatomic) UINavigationController *searchVC;
 @property (nonatomic) NSInteger selectedRow;
 @property (strong,nonatomic) MenuTableViewController *menuVC;
+@property (strong,nonatomic) StartStopViewController *startVC;
 
 
 @end
@@ -31,12 +33,16 @@ NSInteger const slideRightBuffer = 300;
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  if (!_searchVC) {
+    _searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
+  }
+  
   [self addChildViewController:self.searchVC];
   self.searchVC.view.frame = self.view.frame;
   [self.view addSubview:self.searchVC.view];
   [self.searchVC didMoveToParentViewController:self];
   self.topViewController = self.searchVC;
-  self.selectedRow = 0;
+  self.selectedRow = -1;
   
   UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 45, 45)];
   [button setBackgroundImage:[UIImage imageNamed:@"burgermenuicon"] forState:UIControlStateNormal];
@@ -49,7 +55,7 @@ NSInteger const slideRightBuffer = 300;
   
   self.slideAway = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slidePanel:)];
   [self.topViewController.view addGestureRecognizer:self.slideAway];
-  
+
 
 }
 
@@ -67,11 +73,13 @@ NSInteger const slideRightBuffer = 300;
   
 }
 
+
+#pragma mark - Gesture Recognizers
 - (void)closePanel {
+  //disable tapping it close
   [self.topViewController.view removeGestureRecognizer:self.tapItClose];
   
   __weak BurgerViewController *weakSelf = self;
-  
   [UIView animateWithDuration:0.3 animations:^{
     weakSelf.topViewController.view.center = weakSelf.view.center;
   } completion:^(BOOL finished) {
@@ -116,13 +124,19 @@ NSInteger const slideRightBuffer = 300;
 
 
 //lazily load the searchVC navigation controller
--(UINavigationController *)searchVC {
-  if (!_searchVC) {
-    _searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
-  }
-  return _searchVC;
-}
+//-(UINavigationController *)searchVC {
+//  if (!_searchVC) {
+//    _searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
+//  }
+//  return _searchVC;
+//}
 
+-(StartStopViewController *)startVC {
+  if (!_startVC) {
+    _startVC = [self.storyboard instantiateViewControllerWithIdentifier:@"START_VC"];
+  }
+  return _startVC;
+}
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -174,10 +188,10 @@ NSInteger const slideRightBuffer = 300;
     UIViewController *destinationVC;
     switch (selectedRow) {
       case 0:
-        destinationVC = self.searchVC; // change
+        destinationVC = self.startVC;
         break;
       case 1:
-        //destinationVC = self.profileVC;
+        destinationVC = self.startVC;
         break;
       case 2:
         //destinationVC = self.profileVC;

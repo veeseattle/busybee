@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6N-VM-teO">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6N-VM-teO">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <connections>
                                     <segue destination="HFv-6q-P3G" kind="embed" identifier="EMBED_MENU" id="ZuM-sd-phf"/>
@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="1159" y="-143"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="BUR-6q-XZH">
             <objects>
-                <viewController id="aAQ-WM-nxg" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MAIN_VC" id="aAQ-WM-nxg" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IxW-8k-De2"/>
                         <viewControllerLayoutGuide type="bottom" id="5xm-RM-5sk"/>
@@ -49,13 +49,64 @@
                     <view key="view" contentMode="scaleToFill" id="QEB-yd-gDX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OttoIsRunning" translatesAutoresizingMaskIntoConstraints="NO" id="pbH-ny-dxc">
+                                <rect key="frame" x="200" y="164" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="nEZ-rH-K6f"/>
+                                    <constraint firstAttribute="height" constant="200" id="yRV-Bv-fYB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="otto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzG-qZ-8hq">
+                                <rect key="frame" x="264" y="230" width="72" height="48"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is running..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Saa-Hs-gcB">
+                                <rect key="frame" x="255" y="277" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="otto is running in the background and will automatically detect when you drive and switch insurance coverage on and off" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1m-WD-5aU">
+                                <rect key="frame" x="46" y="414" width="508" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="lzG-qZ-8hq" secondAttribute="centerY" id="0aT-A1-oHJ"/>
+                            <constraint firstItem="pbH-ny-dxc" firstAttribute="top" secondItem="IxW-8k-De2" secondAttribute="bottom" constant="100" id="4Fi-nj-zK9"/>
+                            <constraint firstItem="Saa-Hs-gcB" firstAttribute="top" secondItem="lzG-qZ-8hq" secondAttribute="bottom" constant="-1" id="NSu-Fo-AKI"/>
+                            <constraint firstItem="pbH-ny-dxc" firstAttribute="centerY" secondItem="lzG-qZ-8hq" secondAttribute="centerY" constant="10" id="Nbx-c3-qHN"/>
+                            <constraint firstAttribute="centerX" secondItem="E1m-WD-5aU" secondAttribute="centerX" id="P92-of-WS0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E1m-WD-5aU" secondAttribute="trailing" constant="30" id="VJf-Bt-22J"/>
+                            <constraint firstAttribute="centerY" secondItem="pbH-ny-dxc" secondAttribute="centerY" id="cSX-HK-eue"/>
+                            <constraint firstItem="E1m-WD-5aU" firstAttribute="top" secondItem="pbH-ny-dxc" secondAttribute="bottom" constant="50" id="dlD-cr-R4E"/>
+                            <constraint firstAttribute="centerX" secondItem="pbH-ny-dxc" secondAttribute="centerX" id="iv0-LK-N8N"/>
+                            <constraint firstItem="Saa-Hs-gcB" firstAttribute="centerX" secondItem="lzG-qZ-8hq" secondAttribute="centerX" id="l35-JZ-cy8"/>
+                            <constraint firstAttribute="centerX" secondItem="lzG-qZ-8hq" secondAttribute="centerX" id="tWA-hZ-uHO"/>
+                            <constraint firstItem="E1m-WD-5aU" firstAttribute="leading" secondItem="QEB-yd-gDX" secondAttribute="leadingMargin" constant="30" id="zI4-mf-J87"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cSX-HK-eue"/>
+                                <exclude reference="0aT-A1-oHJ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="5m2-Io-DBP"/>
                     <navigationItem key="navigationItem" id="UvK-Pb-5Ix"/>
+                    <connections>
+                        <outlet property="ottobiglabel" destination="lzG-qZ-8hq" id="kV2-OB-7pP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXs-Xe-ywf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2227" y="657"/>
+            <point key="canvasLocation" x="4663" y="657"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="lmf-7R-6CN">
@@ -304,43 +355,119 @@
             </objects>
             <point key="canvasLocation" x="1914" y="-335"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Start/Stop-->
+        <scene sceneID="fVZ-ve-dgb">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="START_VC" id="6Y7-1U-bs8" customClass="StartStopViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="4Ab-5a-UZR"/>
+                        <viewControllerLayoutGuide type="bottom" id="GdC-Ro-bf7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="xpf-Fs-2pd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsG-ZJ-IJd">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="SK9-cg-hLN"/>
+                                    <constraint firstAttribute="width" constant="200" id="ubo-g3-mPG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7A-Fr-XD4">
+                                <rect key="frame" x="116" y="450" width="368" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuz-cq-b2D">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Ape-Bc-POI"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="ZcG-hh-Wx7"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YsG-ZJ-IJd" firstAttribute="top" secondItem="4Ab-5a-UZR" secondAttribute="bottom" constant="100" id="4O8-xB-7oC"/>
+                            <constraint firstItem="yuz-cq-b2D" firstAttribute="trailing" secondItem="xpf-Fs-2pd" secondAttribute="trailingMargin" constant="16" id="4ed-R3-l4G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u7A-Fr-XD4" secondAttribute="trailing" constant="100" id="BCo-zt-yZB"/>
+                            <constraint firstAttribute="centerX" secondItem="u7A-Fr-XD4" secondAttribute="centerX" id="KcT-Sj-tp1"/>
+                            <constraint firstItem="yuz-cq-b2D" firstAttribute="top" secondItem="xpf-Fs-2pd" secondAttribute="topMargin" id="e7B-Bw-gsc"/>
+                            <constraint firstAttribute="centerY" secondItem="YsG-ZJ-IJd" secondAttribute="centerY" id="ew1-B8-ASZ"/>
+                            <constraint firstItem="u7A-Fr-XD4" firstAttribute="top" secondItem="YsG-ZJ-IJd" secondAttribute="bottom" constant="50" id="kb8-mI-De9"/>
+                            <constraint firstItem="yuz-cq-b2D" firstAttribute="leading" secondItem="xpf-Fs-2pd" secondAttribute="leadingMargin" constant="-16" id="lqZ-Dj-oyW"/>
+                            <constraint firstAttribute="centerX" secondItem="YsG-ZJ-IJd" secondAttribute="centerX" id="oFa-Xp-xVn"/>
+                            <constraint firstItem="u7A-Fr-XD4" firstAttribute="leading" secondItem="xpf-Fs-2pd" secondAttribute="leadingMargin" constant="100" id="vaO-4E-dix"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4O8-xB-7oC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Start/Stop" image="ottostart" id="dLY-nJ-Diq"/>
+                    <navigationItem key="navigationItem" id="p52-Hk-CnN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lapsedTimeLabel" destination="u7A-Fr-XD4" id="nRh-vE-xlg"/>
+                        <outlet property="stopwatchButton" destination="YsG-ZJ-IJd" id="0eG-yK-MI2"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUW-QK-hfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3818" y="1451"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yQG-Jf-zvQ">
+        <!--Item-->
+        <scene sceneID="SXy-bQ-CP8">
             <objects>
-                <navigationController storyboardIdentifier="SEARCH_VC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w9h-um-r5W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SEARCH_VC" automaticallyAdjustsScrollViewInsets="NO" id="b3Y-10-k3y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="HvW-eS-gco"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jTY-Oy-Ovw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0b7-2G-oQa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aAQ-WM-nxg" kind="relationship" relationship="rootViewController" id="tgL-Wr-Bf6"/>
+                        <segue destination="aAQ-WM-nxg" kind="relationship" relationship="rootViewController" id="gkO-xA-dRa"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JSl-l4-zlo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OWR-wX-Obo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415" y="657"/>
+            <point key="canvasLocation" x="3775" y="673"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="epW-qD-LRG">
+            <objects>
+                <tabBarController storyboardIdentifier="TAB_BAR" automaticallyAdjustsScrollViewInsets="NO" id="aWM-1C-q9p" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zLj-L5-Vdb"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ZHy-be-zEV">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="b3Y-10-k3y" kind="relationship" relationship="viewControllers" id="FSe-Ng-aqa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BsS-Aq-xDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2963" y="673"/>
         </scene>
     </scenes>
     <resources>
+        <image name="OttoIsRunning" width="214" height="212"/>
         <image name="ottoicon" width="277" height="262"/>
+        <image name="ottostart" width="189" height="191"/>
     </resources>
 </document>
