@@ -7,9 +7,12 @@
 //
 
 #import "ActivityLogViewController.h"
+#import "LogTableViewCell.h"
 
-@interface ActivityLogViewController ()
+@interface ActivityLogViewController () <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *activitiesArray;
 
 @end
 
@@ -17,22 +20,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
+  
+  UINib *nib = [UINib nibWithNibName:@"LogTableViewCell" bundle:nil];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"LOG_CELL"];
+  self.tableView.rowHeight = 100;
+  
+  NSDictionary *trip1 = @{ @"firstLine" : @"May 17, 2015", @"secondLine" : @"12:35pm", @"thirdLine" : @"1:10pm"};
+  NSDictionary *trip2 = @{ @"firstLine" : @"May 18, 2015", @"secondLine" : @"2:35pm", @"thirdLine" : @"2:46pm"};
+  NSDictionary *trip3 = @{ @"firstLine" : @"May 18, 2015", @"secondLine" : @"7:12pm", @"thirdLine" : @"8:10pm"};
+  self.activitiesArray = @[trip1, trip2, trip3];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  LogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LOG_CELL" forIndexPath:indexPath];
+  NSDictionary *trip = self.activitiesArray[indexPath.row];
+  cell.tripDateLabel.text = trip[@"firstLine"];
+  cell.tripDurationLabel.text = @"XX min";
+  cell.startTimeLabel.text = trip[@"secondLine"];
+  cell.endTimeLabel.text = trip[@"thirdLine"];
+  return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return self.activitiesArray.count;
 }
-*/
+
 
 @end

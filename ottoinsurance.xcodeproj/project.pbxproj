@@ -20,6 +20,7 @@
 		4ED23A881B157A9B00552CD2 /* ActivityLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A871B157A9B00552CD2 /* ActivityLogViewController.m */; };
 		4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */; };
 		4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */; };
+		4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8F1B1586F700552CD2 /* AlertViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableViewCell.h; sourceTree = "<group>"; };
 		4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewCell.m; sourceTree = "<group>"; };
 		4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
+		4ED23A8E1B1586F700552CD2 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		4ED23A8F1B1586F700552CD2 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 				4E00826E1B11669500BA2613 /* StartStopViewController.m */,
 				4ED23A861B157A9B00552CD2 /* ActivityLogViewController.h */,
 				4ED23A871B157A9B00552CD2 /* ActivityLogViewController.m */,
+				4ED23A8E1B1586F700552CD2 /* AlertViewController.h */,
+				4ED23A8F1B1586F700552CD2 /* AlertViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			files = (
 				4E0082171B1019BE00BA2613 /* ViewController.m in Sources */,
 				4E0082141B1019BE00BA2613 /* AppDelegate.m in Sources */,
+				4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */,
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,
 				4E0082111B1019BE00BA2613 /* main.m in Sources */,
 				4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */,

@@ -10,6 +10,8 @@
 #import "MenuTableViewController.h"
 #import "StartStopViewController.h"
 #import "ViewController.h"
+#import "ActivityLogViewController.h"
+#import "AlertViewController.h"
 
 @interface BurgerViewController () <MenuPressedDelegate>
 
@@ -23,6 +25,9 @@
 @property (strong,nonatomic) MenuTableViewController *menuVC;
 @property (strong,nonatomic) StartStopViewController *startVC;
 @property (strong,nonatomic) ViewController *mainVC;
+@property (strong,nonatomic) ActivityLogViewController *activityVC;
+@property (strong,nonatomic) AlertViewController *alertVC;
+
 
 
 @end
@@ -139,6 +144,19 @@ NSInteger const slideRightBuffer = 300;
   return _mainVC;
 }
 
+-(ActivityLogViewController *)activityVC {
+  if (!_activityVC) {
+    _activityVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ACTIVITYLOG_VC"];
+  }
+  return _activityVC;
+}
+
+-(AlertViewController *)alertVC {
+  if (!_alertVC) {
+    _alertVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ALERT_VC"];
+  }
+  return _alertVC;
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
   
@@ -195,8 +213,10 @@ NSInteger const slideRightBuffer = 300;
         destinationVC = self.startVC;
         break;
       case 2:
-        //destinationVC = self.profileVC;
+        destinationVC = self.activityVC;
         break;
+      case 8:
+        destinationVC = self.alertVC;
       default:
         break;
     }
