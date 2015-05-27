@@ -21,16 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   [self.lowBatteryButton addTarget:self action:@selector(lowBatteryButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-  self.lowBatteryButton.titleLabel.text = @"5/18 Low Battery";
   self.lowBatteryButton.layer.cornerRadius = 5;
   self.lowBatteryButton.layer.borderColor = [[UIColor grayColor] CGColor];
   self.lowBatteryButton.layer.borderWidth = 1;
   
   [self.policyExpiredButton addTarget:self action:@selector(policyExpiredButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+  self.policyExpiredButton.layer.cornerRadius = 5;
+  self.policyExpiredButton.layer.borderColor = [[UIColor grayColor] CGColor];
+  self.policyExpiredButton.layer.borderWidth = 1;
+  
   [self.declinedTripButton addTarget:self action:@selector(declinedTripButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+  self.declinedTripButton.layer.cornerRadius = 5;
+  self.declinedTripButton.layer.borderColor = [[UIColor grayColor] CGColor];
+  self.declinedTripButton.layer.borderWidth = 1;
+  
   [self.declinedTripButton2 addTarget:self action:@selector(declinedTripButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-  
-  
+  self.declinedTripButton2.layer.cornerRadius = 5;
+  self.declinedTripButton2.layer.borderColor = [[UIColor grayColor] CGColor];
+  self.declinedTripButton2.layer.borderWidth = 1;
+
 }
 
 - (void)didReceiveMemoryWarning {

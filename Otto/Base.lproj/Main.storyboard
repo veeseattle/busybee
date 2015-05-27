@@ -396,7 +396,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SIp-zI-G7b"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="5/18 Low Battery">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -405,7 +405,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nwz-WO-Ane"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="5/13 Policy Expiration">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -414,7 +414,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="YZ3-e6-k49"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="5/10 Declined Trip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -423,10 +423,19 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="044-Su-ZPY"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="5/5 Declined Trip">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVt-9Z-qZ5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="fzO-po-ce5"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Alert History" id="TUA-aq-NZ3"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -434,6 +443,8 @@
                             <constraint firstItem="GUl-TP-okS" firstAttribute="top" secondItem="DtB-J8-gix" secondAttribute="bottom" constant="10" id="EnL-AY-Vw2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ULY-tG-JvN" secondAttribute="trailing" constant="30" id="HkJ-3s-7cK"/>
                             <constraint firstAttribute="centerX" secondItem="ULY-tG-JvN" secondAttribute="centerX" id="IM9-LK-dNp"/>
+                            <constraint firstItem="KVt-9Z-qZ5" firstAttribute="top" secondItem="bCv-OE-5Zj" secondAttribute="topMargin" id="Ja0-3n-IZ4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KVt-9Z-qZ5" secondAttribute="trailing" constant="-16" id="LpW-d3-vWw"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="trailing" secondItem="DtB-J8-gix" secondAttribute="trailing" id="M1y-vO-niC"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="leading" secondItem="DtB-J8-gix" secondAttribute="leading" id="TLs-Cl-eD4"/>
                             <constraint firstItem="DtB-J8-gix" firstAttribute="top" secondItem="ULY-tG-JvN" secondAttribute="bottom" constant="10" id="UxA-qg-Geo"/>
@@ -441,6 +452,7 @@
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="trailing" secondItem="ULY-tG-JvN" secondAttribute="trailing" id="fWK-TM-3L2"/>
                             <constraint firstItem="ULY-tG-JvN" firstAttribute="leading" secondItem="bCv-OE-5Zj" secondAttribute="leadingMargin" constant="30" id="gjG-qE-q4a"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="leading" secondItem="ULY-tG-JvN" secondAttribute="leading" id="kjn-6q-FGK"/>
+                            <constraint firstItem="KVt-9Z-qZ5" firstAttribute="leading" secondItem="bCv-OE-5Zj" secondAttribute="leadingMargin" constant="-16" id="sHG-JC-2XH"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="top" secondItem="GUl-TP-okS" secondAttribute="bottom" constant="10" id="tu9-gh-K0E"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="leading" secondItem="GUl-TP-okS" secondAttribute="leading" id="x4F-V4-PcM"/>
                         </constraints>
