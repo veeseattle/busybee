@@ -480,8 +480,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-em-9CL">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-em-9CL">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -489,7 +489,7 @@
                         <constraints>
                             <constraint firstItem="dYN-1T-N5j" firstAttribute="top" secondItem="fgP-em-9CL" secondAttribute="bottom" id="JE6-yS-seV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fgP-em-9CL" secondAttribute="trailing" constant="-16" id="VoW-Xj-50d"/>
-                            <constraint firstItem="fgP-em-9CL" firstAttribute="top" secondItem="T6y-zJ-us1" secondAttribute="topMargin" id="Ywn-2s-Ozw"/>
+                            <constraint firstItem="fgP-em-9CL" firstAttribute="top" secondItem="T6y-zJ-us1" secondAttribute="topMargin" constant="64" id="Ywn-2s-Ozw"/>
                             <constraint firstItem="fgP-em-9CL" firstAttribute="leading" secondItem="T6y-zJ-us1" secondAttribute="leadingMargin" constant="-16" id="aKk-20-G1c"/>
                         </constraints>
                     </view>
