@@ -113,10 +113,9 @@
         <scene sceneID="lmf-7R-6CN">
             <objects>
                 <tableViewController id="HFv-6q-P3G" customClass="MenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HoB-xx-hmK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HoB-xx-hmK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="jHq-4q-AgC">
                                 <cells>
@@ -131,7 +130,7 @@
                                                         <constraint firstAttribute="width" constant="180" id="nOA-xC-tnk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ottoicon" translatesAutoresizingMaskIntoConstraints="NO" id="mwb-7f-UdF">
@@ -149,6 +148,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="mwb-7f-UdF" secondAttribute="centerY" id="fxp-Hr-gBg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wXZ-dp-8zI">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -162,7 +162,6 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="h5Z-Hr-4wn"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -171,6 +170,7 @@
                                                 <constraint firstItem="pHg-7a-5jk" firstAttribute="leading" secondItem="zJD-j4-BqX" secondAttribute="leadingMargin" constant="12" id="rId-NE-uez"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="psw-bq-PLT">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -178,13 +178,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK5-BR-8o1">
-                                                    <rect key="frame" x="20" y="11" width="250" height="21"/>
+                                                    <rect key="frame" x="20" y="12" width="250" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="RHl-oi-33G"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="nb1-8e-6uU"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -193,6 +192,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="PK5-BR-8o1" secondAttribute="centerY" id="fYc-rA-lpa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="v1E-wf-hn4">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -216,6 +216,7 @@
                                                 <constraint firstItem="1Lt-5Z-6cS" firstAttribute="leading" secondItem="n3n-05-BHC" secondAttribute="leadingMargin" constant="12" id="dgd-QY-Wbr"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RaR-rv-9KN">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -239,6 +240,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="yUZ-tX-QT4" secondAttribute="centerY" id="pxb-F2-XV6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iic-0u-bQp">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -258,11 +260,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="QbD-34-9WX" secondAttribute="centerY" id="1E0-bX-HmM"/>
                                                 <constraint firstItem="QbD-34-9WX" firstAttribute="leading" secondItem="qhB-IS-nUP" secondAttribute="leadingMargin" constant="12" id="svs-fV-14o"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IyE-Gp-tMO">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -287,6 +291,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="Cez-VK-V1E" secondAttribute="centerY" id="DOX-4s-0QJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2jW-gr-AXD">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -311,6 +316,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="5im-DO-1T0" secondAttribute="centerY" id="bVK-IF-sNI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Q4Z-il-81g">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -326,7 +332,6 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="pEK-FB-b9F"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -335,6 +340,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="znB-1Q-9IR" secondAttribute="centerY" id="sY2-hA-epZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9ki-SW-V8i">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -359,6 +365,7 @@
                                                 <constraint firstAttribute="centerY" secondItem="GrN-Or-fZZ" secondAttribute="centerY" id="fQp-NI-cXV"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -372,6 +379,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTl-26-8UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1914" y="-335"/>
+        </scene>
+        <!--Activity Log View Controller-->
+        <scene sceneID="ITX-Lt-5YF">
+            <objects>
+                <viewController storyboardIdentifier="ACTIVITYLOG_VC" id="x7f-iA-uPd" customClass="ActivityLogViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hzv-2Z-fNC"/>
+                        <viewControllerLayoutGuide type="bottom" id="dYN-1T-N5j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T6y-zJ-us1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-em-9CL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dYN-1T-N5j" firstAttribute="top" secondItem="fgP-em-9CL" secondAttribute="bottom" id="JE6-yS-seV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fgP-em-9CL" secondAttribute="trailing" constant="-16" id="VoW-Xj-50d"/>
+                            <constraint firstItem="fgP-em-9CL" firstAttribute="top" secondItem="T6y-zJ-us1" secondAttribute="topMargin" id="Ywn-2s-Ozw"/>
+                            <constraint firstItem="fgP-em-9CL" firstAttribute="leading" secondItem="T6y-zJ-us1" secondAttribute="leadingMargin" constant="-16" id="aKk-20-G1c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="fgP-em-9CL" id="VpP-hw-6hP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clS-oi-vVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757" y="363"/>
         </scene>
         <!--Start/Stop-->
         <scene sceneID="fVZ-ve-dgb">
