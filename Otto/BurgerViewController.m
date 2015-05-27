@@ -9,6 +9,7 @@
 #import "BurgerViewController.h"
 #import "MenuTableViewController.h"
 #import "StartStopViewController.h"
+#import "ViewController.h"
 
 @interface BurgerViewController () <MenuPressedDelegate>
 
@@ -21,6 +22,7 @@
 @property (nonatomic) NSInteger selectedRow;
 @property (strong,nonatomic) MenuTableViewController *menuVC;
 @property (strong,nonatomic) StartStopViewController *startVC;
+@property (strong,nonatomic) ViewController *mainVC;
 
 
 @end
@@ -123,19 +125,18 @@ NSInteger const slideRightBuffer = 300;
 }
 
 
-//lazily load the searchVC navigation controller
-//-(UINavigationController *)searchVC {
-//  if (!_searchVC) {
-//    _searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
-//  }
-//  return _searchVC;
-//}
-
 -(StartStopViewController *)startVC {
   if (!_startVC) {
     _startVC = [self.storyboard instantiateViewControllerWithIdentifier:@"START_VC"];
   }
   return _startVC;
+}
+
+-(ViewController *)mainVC {
+  if (!_mainVC) {
+    _mainVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
+  }
+  return _mainVC;
 }
 
 
@@ -188,7 +189,7 @@ NSInteger const slideRightBuffer = 300;
     UIViewController *destinationVC;
     switch (selectedRow) {
       case 0:
-        destinationVC = self.startVC;
+        destinationVC = self.mainVC;
         break;
       case 1:
         destinationVC = self.startVC;
