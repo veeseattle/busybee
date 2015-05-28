@@ -21,7 +21,7 @@
 @implementation ActivityLogViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
   self.tableView.allowsMultipleSelectionDuringEditing = NO;
@@ -54,6 +54,8 @@
   cell.tripDurationLabel.text = @"XX min";
   cell.startTimeLabel.text = trip[@"secondLine"];
   cell.endTimeLabel.text = trip[@"thirdLine"];
+  cell.removeButton.tag = indexPath.row;
+  [cell.removeButton addTarget:self action:@selector(deleteTrip:) forControlEvents:UIControlEventTouchUpInside];
   return cell;
 }
 
@@ -66,6 +68,12 @@
 }
 
 
+-(void)deleteTrip:(id)sender
+{
+  UIButton *btn =(UIButton*)sender;
+  [self.activitiesArray removeObjectAtIndex:btn.tag];
+  [self.tableView reloadData];
+}
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
