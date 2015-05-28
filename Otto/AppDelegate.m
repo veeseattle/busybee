@@ -17,14 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
-  
+ 
   //[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
   [[UINavigationBar appearance] setTranslucent:false];
   
-  [[UILabel appearance] setFont:[UIFont fontWithName:@"Avenir" size:16.0]];
+  [[UILabel appearance] setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0]];
   
-  
-//  
+//
 //  UIViewController  *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
 //  self.window.rootViewController = rootController;
 //  UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;

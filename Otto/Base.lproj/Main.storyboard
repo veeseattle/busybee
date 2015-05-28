@@ -113,12 +113,11 @@
         <scene sceneID="lmf-7R-6CN">
             <objects>
                 <tableViewController id="HFv-6q-P3G" customClass="MenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HoB-xx-hmK">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="HoB-xx-hmK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="jHq-4q-AgC">
                                 <cells>
@@ -128,7 +127,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ottoinsure - simply pay for the insurance coverage you use" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVM-f3-tCd">
-                                                    <rect key="frame" x="120" y="23" width="180" height="62"/>
+                                                    <rect key="frame" x="116" y="23" width="180" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="180" id="nOA-xC-tnk"/>
                                                     </constraints>
@@ -137,7 +136,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ottologo" translatesAutoresizingMaskIntoConstraints="NO" id="mwb-7f-UdF">
-                                                    <rect key="frame" x="20" y="11" width="85" height="85"/>
+                                                    <rect key="frame" x="16" y="11" width="85" height="85"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="85" id="SAu-2M-Ncx"/>
                                                         <constraint firstAttribute="height" constant="85" id="oAa-fG-k7W"/>
@@ -145,7 +144,7 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mwb-7f-UdF" firstAttribute="leading" secondItem="ajq-LZ-qNs" secondAttribute="leadingMargin" constant="12" id="1M9-ok-tEC"/>
+                                                <constraint firstItem="mwb-7f-UdF" firstAttribute="leading" secondItem="ajq-LZ-qNs" secondAttribute="leadingMargin" constant="8" id="1M9-ok-tEC"/>
                                                 <constraint firstItem="CVM-f3-tCd" firstAttribute="centerY" secondItem="mwb-7f-UdF" secondAttribute="centerY" id="4fZ-iO-FtU"/>
                                                 <constraint firstItem="CVM-f3-tCd" firstAttribute="leading" secondItem="mwb-7f-UdF" secondAttribute="trailing" constant="15" id="9k3-sc-vdF"/>
                                                 <constraint firstAttribute="centerY" secondItem="mwb-7f-UdF" secondAttribute="centerY" id="fxp-Hr-gBg"/>

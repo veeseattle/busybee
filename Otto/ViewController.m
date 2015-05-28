@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  self.ottobiglabel.font = [UIFont fontWithName:@"Avenir-Black" size:35.0];
+  self.ottobiglabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Light" size:35.0];
   
  NSArray *imageNames = @[@"OttoIsRunning.png", @"OttoIsRunning2.png", @"OttoIsRunning3.png", @"OttoIsRunning4.png"];
   
