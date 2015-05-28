@@ -21,6 +21,10 @@
 		4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */; };
 		4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */; };
 		4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8F1B1586F700552CD2 /* AlertViewController.m */; };
+		4EFC184B1B16D18900F26155 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18491B16D18900F26155 /* Model.xcdatamodeld */; };
+		4EFC18511B16D38900F26155 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18501B16D38900F26155 /* Trip.m */; };
+		4EFC18561B16DE9400F26155 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18551B16DE9400F26155 /* CoreDataStack.m */; };
+		4EFC18591B16DF4F00F26155 /* DataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18581B16DF4F00F26155 /* DataService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E00820B1B1019BE00BA2613 /* Otto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Otto.app; path = ottoinsurance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E00820B1B1019BE00BA2613 /* ottoinsurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ottoinsurance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E00820F1B1019BE00BA2613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0082101B1019BE00BA2613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E0082121B1019BE00BA2613 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +65,13 @@
 		4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
 		4ED23A8E1B1586F700552CD2 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		4ED23A8F1B1586F700552CD2 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
+		4EFC184A1B16D18900F26155 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4EFC184F1B16D38900F26155 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		4EFC18501B16D38900F26155 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		4EFC18541B16DE9400F26155 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		4EFC18551B16DE9400F26155 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		4EFC18571B16DF4F00F26155 /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
+		4EFC18581B16DF4F00F26155 /* DataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +104,7 @@
 		4E00820C1B1019BE00BA2613 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E00820B1B1019BE00BA2613 /* Otto.app */,
+				4E00820B1B1019BE00BA2613 /* ottoinsurance.app */,
 				4E0082241B1019BE00BA2613 /* OttoTests.xctest */,
 			);
 			name = Products;
@@ -140,9 +151,16 @@
 		4E0082691B113EC200BA2613 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EFC18491B16D18900F26155 /* Model.xcdatamodeld */,
 				4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */,
 				4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */,
 				4E0082651B113E1800BA2613 /* MenuPressedDelegate.h */,
+				4EFC184F1B16D38900F26155 /* Trip.h */,
+				4EFC18501B16D38900F26155 /* Trip.m */,
+				4EFC18541B16DE9400F26155 /* CoreDataStack.h */,
+				4EFC18551B16DE9400F26155 /* CoreDataStack.m */,
+				4EFC18571B16DF4F00F26155 /* DataService.h */,
+				4EFC18581B16DF4F00F26155 /* DataService.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -195,7 +213,7 @@
 			);
 			name = ottoinsurance;
 			productName = Otto;
-			productReference = 4E00820B1B1019BE00BA2613 /* Otto.app */;
+			productReference = 4E00820B1B1019BE00BA2613 /* ottoinsurance.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4E0082231B1019BE00BA2613 /* OttoTests */ = {
@@ -287,8 +305,12 @@
 				4E0082111B1019BE00BA2613 /* main.m in Sources */,
 				4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */,
 				4E0082641B113D7C00BA2613 /* BurgerViewController.m in Sources */,
+				4EFC18511B16D38900F26155 /* Trip.m in Sources */,
+				4EFC184B1B16D18900F26155 /* Model.xcdatamodeld in Sources */,
+				4EFC18591B16DF4F00F26155 /* DataService.m in Sources */,
 				4ED23A881B157A9B00552CD2 /* ActivityLogViewController.m in Sources */,
 				4E0082681B113E7C00BA2613 /* MenuTableViewController.m in Sources */,
+				4EFC18561B16DE9400F26155 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +523,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4EFC18491B16D18900F26155 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4EFC184A1B16D18900F26155 /* Model.xcdatamodel */,
+			);
+			currentVersion = 4EFC184A1B16D18900F26155 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4E0082031B1019BE00BA2613 /* Project object */;
 }

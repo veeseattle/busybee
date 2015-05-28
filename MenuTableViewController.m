@@ -10,8 +10,6 @@
 
 @interface MenuTableViewController ()
 
-
-
 @end
 
 @implementation MenuTableViewController
@@ -19,7 +17,11 @@
 
 -(void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
+  [self.tableView setBackgroundColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
+  
 }
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [self.delegate menuOptionSelected:indexPath.row];

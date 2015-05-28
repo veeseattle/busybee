@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UIView *view;
+@property (weak, nonatomic) IBOutlet UIButton *removeButton;
 
 @end
