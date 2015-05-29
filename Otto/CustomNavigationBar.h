@@ -1,5 +1,5 @@
 //
-//  NavigationBar.h
+//  CustomNavigationBar.h
 //  ottoinsurance
 //
 //  Created by Vania Kurniawati on 5/28/15.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NavigationBar : UINavigationBar
+@interface CustomNavigationBar : UINavigationBar
 
-- (CGSize)sizeThatFits:(CGSize)size;
+@property (strong,nonatomic) UILabel *topTitle;
+
+-(instancetype)init;
 
 @end

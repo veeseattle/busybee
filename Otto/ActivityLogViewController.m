@@ -10,14 +10,14 @@
 #import "LogTableViewCell.h"
 #import "DataService.h"
 #import <CoreData/CoreData.h>
-#import "NavigationBar.h"
+#import "CustomNavigationBar.h"
 
 @interface ActivityLogViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *activitiesArray;
 @property (strong, nonatomic) NSManagedObjectContext *context;
-@property (strong, nonatomic) NavigationBar *navBar;
+@property (strong, nonatomic) CustomNavigationBar *navBar;
 @end
 
 @implementation ActivityLogViewController
@@ -39,6 +39,9 @@
   self.activitiesArray = [[NSMutableArray alloc] initWithArray:@[trip1, trip2, trip3]];
 
   [self fetchTrips];
+  
+  self.navBar = [[CustomNavigationBar alloc] init];
+  [self.view addSubview:self.navBar];
   
 }
 
