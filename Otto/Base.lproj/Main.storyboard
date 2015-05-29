@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lze-7v-4hW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2689" y="-649"/>
+            <point key="canvasLocation" x="3501" y="-649"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="BUR-6q-XZH">
@@ -383,9 +383,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTl-26-8UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3490" y="-729"/>
+            <point key="canvasLocation" x="4302" y="-729"/>
         </scene>
-        <!--Alert View Controller-->
+        <!--Item-->
         <scene sceneID="oQC-IM-BjN">
             <objects>
                 <viewController storyboardIdentifier="ALERT_VC" id="G2S-G3-1oK" customClass="AlertViewController" sceneMemberID="viewController">
@@ -463,6 +463,7 @@
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="leading" secondItem="GUl-TP-okS" secondAttribute="leading" id="x4F-V4-PcM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1hH-Si-NWh"/>
                     <connections>
                         <outlet property="declinedTripButton" destination="GUl-TP-okS" id="KKb-iB-fnY"/>
                         <outlet property="declinedTripButton2" destination="Ha6-k7-7kn" id="IoU-40-3pX"/>
@@ -508,6 +509,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Pw3-os-fEN" secondAttribute="trailing" constant="-16" id="hKa-h1-gdA"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="xdk-0G-ibg"/>
                     <connections>
                         <outlet property="tableView" destination="fgP-em-9CL" id="VpP-hw-6hP"/>
                     </connections>
@@ -555,13 +557,31 @@
                                     <navigationItem id="ZcG-hh-Wx7"/>
                                 </items>
                             </navigationBar>
+                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLp-li-hJG">
+                                <rect key="frame" x="0.0" y="525" width="600" height="75"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="zul-k3-N8X"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="Activity" image="activity" id="e2m-Ew-ZIc"/>
+                                    <tabBarItem tag="1" title="Start/Stop" image="playicon" id="1dt-G5-f9X"/>
+                                    <tabBarItem tag="2" title="ID Card" image="id" id="6zV-Ay-mcg"/>
+                                    <tabBarItem tag="3" title="Accident" image="accident" id="1RM-Wz-nAK"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YsG-ZJ-IJd" firstAttribute="top" secondItem="4Ab-5a-UZR" secondAttribute="bottom" constant="100" id="4O8-xB-7oC"/>
                             <constraint firstItem="yuz-cq-b2D" firstAttribute="trailing" secondItem="xpf-Fs-2pd" secondAttribute="trailingMargin" constant="16" id="4ed-R3-l4G"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="dLp-li-hJG" secondAttribute="bottom" id="5HG-vM-gkX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u7A-Fr-XD4" secondAttribute="trailing" constant="100" id="BCo-zt-yZB"/>
                             <constraint firstAttribute="centerX" secondItem="u7A-Fr-XD4" secondAttribute="centerX" id="KcT-Sj-tp1"/>
+                            <constraint firstItem="dLp-li-hJG" firstAttribute="leading" secondItem="xpf-Fs-2pd" secondAttribute="leadingMargin" constant="-16" id="KvB-dQ-msr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dLp-li-hJG" secondAttribute="trailing" constant="-16" id="Oho-og-BxD"/>
                             <constraint firstItem="yuz-cq-b2D" firstAttribute="top" secondItem="xpf-Fs-2pd" secondAttribute="topMargin" id="e7B-Bw-gsc"/>
                             <constraint firstAttribute="centerY" secondItem="YsG-ZJ-IJd" secondAttribute="centerY" id="ew1-B8-ASZ"/>
                             <constraint firstItem="u7A-Fr-XD4" firstAttribute="top" secondItem="YsG-ZJ-IJd" secondAttribute="bottom" constant="50" id="kb8-mI-De9"/>
@@ -575,12 +595,12 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Start Tracking" id="bHa-Gw-NDX"/>
                     <navigationItem key="navigationItem" id="p52-Hk-CnN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lapsedTimeLabel" destination="u7A-Fr-XD4" id="nRh-vE-xlg"/>
                         <outlet property="stopwatchButton" destination="YsG-ZJ-IJd" id="0eG-yK-MI2"/>
+                        <outlet property="tabBar" destination="dLp-li-hJG" id="oaB-Qk-Wy6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUW-QK-hfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -629,6 +649,10 @@
     </scenes>
     <resources>
         <image name="OttoIsRunning" width="212" height="214"/>
+        <image name="accident" width="81" height="25"/>
+        <image name="activity" width="42" height="42"/>
+        <image name="id" width="42" height="42"/>
         <image name="ottologo" width="60" height="60"/>
+        <image name="playicon" width="42" height="42"/>
     </resources>
 </document>

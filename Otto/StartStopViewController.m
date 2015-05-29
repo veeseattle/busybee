@@ -12,7 +12,7 @@
 #import <CoreData/CoreData.h>
 #import "CustomNavigationBar.h"
 
-@interface StartStopViewController()
+@interface StartStopViewController() <UITabBarDelegate>
 
 @property (assign) NSTimeInterval startTime;
 @property (assign) NSDate *start;
@@ -20,6 +20,7 @@
 @property (assign) BOOL isRunning;
 @property (assign) NSTimeInterval elapsed;
 @property (strong,nonatomic) CustomNavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 @property (weak, nonatomic) IBOutlet UIButton *stopwatchButton;
 
@@ -40,9 +41,35 @@
   
   self.navBar = [[CustomNavigationBar alloc] init];
   [self.view addSubview:self.navBar];
+  
+  self.tabBar.delegate = self;
+  
+  [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:14.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
+  
 }
 
 
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  
+  switch (item.tag) {
+    case 0:
+      NSLog(@"selected 0");
+      break;
+    case 1:
+      NSLog(@"selected 1");
+      break;
+    case 2:
+      NSLog(@"selected 2");
+      break;
+    case 3:
+      NSLog(@"selected 3");
+      break;
+    default:
+      break;
+  }
+  
+  
+}
 - (void)addNewActivity:(NSDate*)startTime withDuration:(int)tripDuration {
   
   Trip *trip = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[[DataService sharedService] coreDataStack].managedObjectContext];
@@ -75,7 +102,7 @@
     [sender setTitle:@"START" forState:UIControlStateNormal];
     [sender setBackgroundColor:[UIColor colorWithRed:26/255.0 green:195/255.0 blue:71/255.0 alpha:1.0]];
     //save to core data
-    [self addNewActivity:self.start withDuration:1];
+    [self addNewActivity:[NSDate date] withDuration:1];
   }
 }
 

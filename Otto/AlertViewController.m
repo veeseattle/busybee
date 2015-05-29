@@ -40,6 +40,8 @@
   self.declinedTripButton2.layer.borderColor = [[UIColor grayColor] CGColor];
   self.declinedTripButton2.layer.borderWidth = 1;
   
+  
+  
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
