@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "playicon30x30.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "playicon60x60.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "playicon.png"
+      "filename" : "playicon90x90.png"
     }
   ],
   "info" : {

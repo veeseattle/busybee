@@ -19,8 +19,7 @@
 @property (assign) int seconds;
 @property (assign) BOOL isRunning;
 @property (assign) NSTimeInterval elapsed;
-@property (strong,nonatomic) CustomNavigationBar *navBar;
-@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
+@property (strong,nonatomic) UINavigationBar *navBar;
 
 @property (weak, nonatomic) IBOutlet UIButton *stopwatchButton;
 
@@ -39,10 +38,11 @@
   self.stopwatchButton.layer.borderWidth = 3;
   [self.stopwatchButton addTarget:self action:@selector(stopwatchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   
-  self.navBar = [[CustomNavigationBar alloc] init];
+  self.navBar = [[UINavigationBar alloc] init];
   [self.view addSubview:self.navBar];
   
-  self.tabBar.delegate = self;
+  UIImageView *logo = [[UIImageView alloc] init];
+  logo.image = [UIImage imageNamed:@"ottoicon.png"];
   
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:14.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
   
