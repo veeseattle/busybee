@@ -11,6 +11,7 @@
 @interface CustomNavigationBar : UINavigationBar
 
 @property (strong,nonatomic) UILabel *topTitle;
+@property (strong,nonatomic) UILabel *subTitle;
 
 -(instancetype)init;
 
