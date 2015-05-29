@@ -442,16 +442,6 @@
                                     <navigationItem title="Alert History" id="TUA-aq-NZ3"/>
                                 </items>
                             </navigationBar>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tg7-sj-uOf">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Activity" image="ottoactivity" id="zrX-0L-xI2"/>
-                                    <tabBarItem tag="1" title="Start/Stop" id="9sd-C6-s39"/>
-                                    <tabBarItem tag="2" enabled="NO" title="ID Card" id="y88-iu-LiK"/>
-                                    <tabBarItem tag="3" enabled="NO" title="Accident" id="ui5-aA-ciE"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -462,11 +452,8 @@
                             <constraint firstItem="KVt-9Z-qZ5" firstAttribute="top" secondItem="bCv-OE-5Zj" secondAttribute="topMargin" id="Ja0-3n-IZ4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KVt-9Z-qZ5" secondAttribute="trailing" constant="-16" id="LpW-d3-vWw"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="trailing" secondItem="DtB-J8-gix" secondAttribute="trailing" id="M1y-vO-niC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Tg7-sj-uOf" secondAttribute="trailing" constant="-16" id="S7Z-H2-OP1"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="leading" secondItem="DtB-J8-gix" secondAttribute="leading" id="TLs-Cl-eD4"/>
-                            <constraint firstItem="ZJ8-lC-4KJ" firstAttribute="top" secondItem="Tg7-sj-uOf" secondAttribute="bottom" id="Toa-Ir-DQP"/>
                             <constraint firstItem="DtB-J8-gix" firstAttribute="top" secondItem="ULY-tG-JvN" secondAttribute="bottom" constant="10" id="UxA-qg-Geo"/>
-                            <constraint firstItem="Tg7-sj-uOf" firstAttribute="leading" secondItem="bCv-OE-5Zj" secondAttribute="leadingMargin" constant="-16" id="YBU-zM-5IT"/>
                             <constraint firstItem="ULY-tG-JvN" firstAttribute="top" secondItem="ciN-uT-VNe" secondAttribute="bottom" constant="85" id="bDK-0C-UCc"/>
                             <constraint firstItem="Ha6-k7-7kn" firstAttribute="trailing" secondItem="ULY-tG-JvN" secondAttribute="trailing" id="fWK-TM-3L2"/>
                             <constraint firstItem="ULY-tG-JvN" firstAttribute="leading" secondItem="bCv-OE-5Zj" secondAttribute="leadingMargin" constant="30" id="gjG-qE-q4a"/>
@@ -481,7 +468,6 @@
                         <outlet property="declinedTripButton2" destination="Ha6-k7-7kn" id="IoU-40-3pX"/>
                         <outlet property="lowBatteryButton" destination="ULY-tG-JvN" id="yYM-df-K73"/>
                         <outlet property="policyExpiredButton" destination="DtB-J8-gix" id="gJW-3q-sw2"/>
-                        <outlet property="tabBar" destination="Tg7-sj-uOf" id="Psu-Q1-vEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Cy-kJ-V7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -643,7 +629,6 @@
     </scenes>
     <resources>
         <image name="OttoIsRunning" width="212" height="214"/>
-        <image name="ottoactivity" width="30" height="30"/>
         <image name="ottologo" width="60" height="60"/>
     </resources>
 </document>

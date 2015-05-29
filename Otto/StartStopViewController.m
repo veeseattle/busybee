@@ -10,6 +10,7 @@
 #import "DataService.h"
 #import "Trip.h"
 #import <CoreData/CoreData.h>
+#import "CustomNavigationBar.h"
 
 @interface StartStopViewController()
 
@@ -17,6 +18,7 @@
 @property (assign) int seconds;
 @property (assign) BOOL isRunning;
 @property (assign) NSTimeInterval elapsed;
+@property (strong,nonatomic) CustomNavigationBar *navBar;
 
 @property (weak, nonatomic) IBOutlet UIButton *stopwatchButton;
 
@@ -35,6 +37,8 @@
   self.stopwatchButton.layer.borderWidth = 3;
   [self.stopwatchButton addTarget:self action:@selector(stopwatchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 
+  self.navBar = [[CustomNavigationBar alloc] init];
+  [self.view addSubview:self.navBar];
 }
 
 

@@ -119,6 +119,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="remove" width="64" height="64"/>
+        <image name="remove" width="20" height="20"/>
     </resources>
 </document>

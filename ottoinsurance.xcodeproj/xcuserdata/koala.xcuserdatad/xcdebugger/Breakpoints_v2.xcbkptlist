@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Otto/StartStopViewController.m"
-            timestampString = "454546595.500338"
+            timestampString = "454570242.65539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-addNewActivity:withDuration:"
             landmarkType = "5">
          </BreakpointContent>

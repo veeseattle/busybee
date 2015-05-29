@@ -154,9 +154,9 @@
 		4E0082691B113EC200BA2613 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EFC18491B16D18900F26155 /* Model.xcdatamodeld */,
 				4EFC18B01B17D5C100F26155 /* CustomNavigationBar.h */,
 				4EFC18B11B17D5C100F26155 /* CustomNavigationBar.m */,
-				4EFC18491B16D18900F26155 /* Model.xcdatamodeld */,
 				4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */,
 				4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */,
 				4E0082651B113E1800BA2613 /* MenuPressedDelegate.h */,
