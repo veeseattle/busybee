@@ -50,6 +50,7 @@
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Trip"];
   NSError *fetchErr;
   NSArray *activityResults = [self.context executeFetchRequest:fetchRequest error:&fetchErr];
+
   NSLog(@"There are %lu trips", (unsigned long)activityResults.count);
   
 }

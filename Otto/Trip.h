@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Trip : NSObject
+@interface Trip : NSManagedObject
 
 @property (strong,nonatomic) NSDate *tripDate;
-@property (assign) NSInteger tripDuration;
-@property (assign) NSTimeInterval startTime;
-@property (assign) NSTimeInterval endTime; 
+@property (assign) int tripDuration;
+@property (assign) NSDate *startTime;
+@property (assign) NSDate *endTime;
 
 
 @end

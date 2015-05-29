@@ -15,6 +15,7 @@
 @interface StartStopViewController()
 
 @property (assign) NSTimeInterval startTime;
+@property (assign) NSDate *start;
 @property (assign) int seconds;
 @property (assign) BOOL isRunning;
 @property (assign) NSTimeInterval elapsed;
@@ -30,22 +31,22 @@
   [super viewDidLoad];
   
   self.seconds = 0;
-
+  
   self.stopwatchButton.layer.cornerRadius = 100;
   self.stopwatchButton.layer.borderColor = [[UIColor blackColor] CGColor];
   [self.stopwatchButton setBackgroundColor:[UIColor colorWithRed:26/255.0 green:195/255.0 blue:71/255.0 alpha:1.0]];
   self.stopwatchButton.layer.borderWidth = 3;
   [self.stopwatchButton addTarget:self action:@selector(stopwatchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+  
   self.navBar = [[CustomNavigationBar alloc] init];
   [self.view addSubview:self.navBar];
 }
 
 
-- (void)addNewActivity:(NSTimeInterval)startTime withDuration:(NSTimeInterval)tripDuration {
+- (void)addNewActivity:(NSDate*)startTime withDuration:(int)tripDuration {
+  
   Trip *trip = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[[DataService sharedService] coreDataStack].managedObjectContext];
-//add attribtues to add
-
+  
   NSDate *today = [NSDate date];
   NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
   [dateFormat setDateFormat:@"MM/dd/yy"];
@@ -53,14 +54,15 @@
   NSLog(@"date: %@", dateString);
   
   trip.tripDate = today;
-  //trip.startTime = self.startTime;
-  //trip.endTime = [NSDate timeIntervalSinceReferenceDate];
-  //trip.tripDuration = trip.endTime - trip.startTime;
+  trip.startTime = self.start;
+  trip.endTime = [NSDate date];
+  //trip.tripDuration = tripDuration;
   //trip.endTime = trip.startTime + tripDuration;
+  
   
   [[DataService sharedService] addNewTrip:today withStartTime:trip.startTime tripDuration:trip.tripDuration];
   [self dismissViewControllerAnimated:true completion:nil];
-
+  
 }
 
 
@@ -68,6 +70,7 @@
   
   if (!self.isRunning) {
     self.isRunning = true;
+    self.start = [NSDate date];
     self.startTime = [NSDate timeIntervalSinceReferenceDate];
     [sender setTitle:@"STOP" forState:UIControlStateNormal];
     [sender setBackgroundColor:[UIColor redColor]];
@@ -79,7 +82,7 @@
     [sender setTitle:@"START" forState:UIControlStateNormal];
     [sender setBackgroundColor:[UIColor colorWithRed:26/255.0 green:195/255.0 blue:71/255.0 alpha:1.0]];
     //save to core data
-    [self addNewActivity:self.startTime withDuration:self.elapsed];
+    [self addNewActivity:self.start withDuration:1];
   }
 }
 
@@ -88,7 +91,7 @@
   if (self.isRunning) {
     NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
     NSTimeInterval elapsed = currentTime - self.startTime;
-        
+    
     int hours = (int) (elapsed / 3600);
     elapsed -= hours * 3600;
     int mins = (int) (elapsed / 60);

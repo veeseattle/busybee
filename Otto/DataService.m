@@ -27,20 +27,19 @@
   return self;
 }
 
--(Trip *)addNewTrip:(NSDate *)tripDate withStartTime:(NSTimeInterval)startTime tripDuration:(NSTimeInterval)duration {
+-(Trip *)addNewTrip:(NSDate *)tripDate withStartTime:(NSDate*)startTime tripDuration:(NSTimeInterval)duration {
   Trip *trip = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:self.coreDataStack.managedObjectContext];
+  
   trip.tripDate = tripDate;
-  //trip.startTime = startTime;
-  //trip.endTime = trip.startTime + duration;
-  //trip.tripDuration = duration;
   
   NSError *saveError;
   [self.coreDataStack.managedObjectContext save:&saveError];
   if (!saveError) {
     return trip;
   }
-  
-  return nil;
+  else {
+    return nil;
+  }
 }
 
 @end

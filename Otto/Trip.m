@@ -10,12 +10,9 @@
 
 @implementation Trip
 
--(instancetype)init{
-  self = [super init];
-  if (self) {
-    
-  }
-  return self;
-}
+@synthesize tripDate;
+@synthesize tripDuration;
+@synthesize startTime;
+@synthesize endTime;
 
 @end

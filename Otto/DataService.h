@@ -15,6 +15,6 @@
 @property (strong,nonatomic) CoreDataStack *coreDataStack;
 
 +(id)sharedService;
--(Trip *)addNewTrip:(NSDate *)tripDate withStartTime:(NSTimeInterval)startTime tripDuration:(NSTimeInterval)duration;
+-(Trip *)addNewTrip:(NSDate *)tripDate withStartTime:(NSDate*)startTime tripDuration:(NSTimeInterval)duration;
 
 @end
