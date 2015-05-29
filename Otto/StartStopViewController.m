@@ -53,14 +53,7 @@
   NSString *dateString = [dateFormat stringFromDate:today];
   NSLog(@"date: %@", dateString);
   
-  trip.tripDate = today;
-  trip.startTime = self.start;
-  trip.endTime = [NSDate date];
-  //trip.tripDuration = tripDuration;
-  //trip.endTime = trip.startTime + tripDuration;
-  
-  
-  [[DataService sharedService] addNewTrip:today withStartTime:trip.startTime tripDuration:trip.tripDuration];
+  [[DataService sharedService] addNewTrip:today withStartTime:trip.startTime tripDuration:1];
   [self dismissViewControllerAnimated:true completion:nil];
   
 }

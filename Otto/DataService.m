@@ -31,6 +31,8 @@
   Trip *trip = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:self.coreDataStack.managedObjectContext];
   
   trip.tripDate = tripDate;
+  trip.startTime = startTime;
+  trip.tripDuration = (int) duration;
   
   NSError *saveError;
   [self.coreDataStack.managedObjectContext save:&saveError];

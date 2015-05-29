@@ -30,7 +30,7 @@
   
   UINib *nib = [UINib nibWithNibName:@"LogTableViewCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"LOG_CELL"];
-  self.tableView.rowHeight = 130;
+  self.tableView.rowHeight = 110;
   self.tableView.userInteractionEnabled = true;
   
   NSDictionary *trip1 = @{ @"firstLine" : @"May 17, 2015", @"secondLine" : @"12:35pm", @"thirdLine" : @"1:10pm"};
@@ -62,9 +62,7 @@
   cell.tripDurationLabel.text = @"XX min";
   cell.startTimeLabel.text = trip[@"secondLine"];
   cell.endTimeLabel.text = trip[@"thirdLine"];
-  cell.removeButton.tag = indexPath.row;
-  [cell.removeButton addTarget:self action:@selector(deleteTrip:) forControlEvents:UIControlEventTouchUpInside];
-  return cell;
+   return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,12 +73,6 @@
   return YES;
 }
 
-
--(void)deleteTrip:(UIButton *)sender
-{
-  [self.activitiesArray removeObjectAtIndex:sender.tag];
-  [self.tableView reloadData];
-}
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
