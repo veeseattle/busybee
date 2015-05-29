@@ -8,11 +8,12 @@
 
 #import "AlertViewController.h"
 
-@interface AlertViewController ()
+@interface AlertViewController () <UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *lowBatteryButton;
 @property (weak, nonatomic) IBOutlet UIButton *policyExpiredButton;
 @property (weak, nonatomic) IBOutlet UIButton *declinedTripButton;
 @property (weak, nonatomic) IBOutlet UIButton *declinedTripButton2;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 @end
 
@@ -39,7 +40,17 @@
   self.declinedTripButton2.layer.cornerRadius = 5;
   self.declinedTripButton2.layer.borderColor = [[UIColor grayColor] CGColor];
   self.declinedTripButton2.layer.borderWidth = 1;
+  
+  
+  self.tabBar.barTintColor = [UIColor whiteColor];
+  self.tabBar.delegate = self;
+  
+  [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+  
+}
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  NSLog(@"didSelectItem: %ld", (long)item.tag);
 }
 
 - (void)didReceiveMemoryWarning {

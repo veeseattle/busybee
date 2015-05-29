@@ -10,12 +10,14 @@
 #import "LogTableViewCell.h"
 #import "DataService.h"
 #import <CoreData/CoreData.h>
+#import "NavigationBar.h"
 
 @interface ActivityLogViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *activitiesArray;
 @property (strong, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) NavigationBar *navBar;
 @end
 
 @implementation ActivityLogViewController
@@ -29,13 +31,15 @@
   UINib *nib = [UINib nibWithNibName:@"LogTableViewCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"LOG_CELL"];
   self.tableView.rowHeight = 130;
+  self.tableView.userInteractionEnabled = true;
   
   NSDictionary *trip1 = @{ @"firstLine" : @"May 17, 2015", @"secondLine" : @"12:35pm", @"thirdLine" : @"1:10pm"};
   NSDictionary *trip2 = @{ @"firstLine" : @"May 18, 2015", @"secondLine" : @"2:35pm", @"thirdLine" : @"2:46pm"};
   NSDictionary *trip3 = @{ @"firstLine" : @"May 18, 2015", @"secondLine" : @"7:12pm", @"thirdLine" : @"8:10pm"};
-  self.activitiesArray = @[trip1, trip2, trip3];
-  
+  self.activitiesArray = [[NSMutableArray alloc] initWithArray:@[trip1, trip2, trip3]];
+
   [self fetchTrips];
+  
 }
 
 
@@ -68,10 +72,9 @@
 }
 
 
--(void)deleteTrip:(id)sender
+-(void)deleteTrip:(UIButton *)sender
 {
-  UIButton *btn =(UIButton*)sender;
-  [self.activitiesArray removeObjectAtIndex:btn.tag];
+  [self.activitiesArray removeObjectAtIndex:sender.tag];
   [self.tableView reloadData];
 }
 

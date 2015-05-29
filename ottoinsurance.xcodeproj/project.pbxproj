@@ -25,6 +25,7 @@
 		4EFC18511B16D38900F26155 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18501B16D38900F26155 /* Trip.m */; };
 		4EFC18561B16DE9400F26155 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18551B16DE9400F26155 /* CoreDataStack.m */; };
 		4EFC18591B16DF4F00F26155 /* DataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18581B16DF4F00F26155 /* DataService.m */; };
+		4EFC18B21B17D5C100F26155 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18B11B17D5C100F26155 /* NavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		4EFC18551B16DE9400F26155 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		4EFC18571B16DF4F00F26155 /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
 		4EFC18581B16DF4F00F26155 /* DataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataService.m; sourceTree = "<group>"; };
+		4EFC18B01B17D5C100F26155 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
+		4EFC18B11B17D5C100F26155 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 		4E0082691B113EC200BA2613 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EFC18B01B17D5C100F26155 /* NavigationBar.h */,
+				4EFC18B11B17D5C100F26155 /* NavigationBar.m */,
 				4EFC18491B16D18900F26155 /* Model.xcdatamodeld */,
 				4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */,
 				4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */,
@@ -299,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0082171B1019BE00BA2613 /* ViewController.m in Sources */,
+				4EFC18B21B17D5C100F26155 /* NavigationBar.m in Sources */,
 				4E0082141B1019BE00BA2613 /* AppDelegate.m in Sources */,
 				4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */,
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,
