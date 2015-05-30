@@ -89,7 +89,6 @@
   NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
   [dateFormat setDateFormat:@"MM/dd/yy"];
   NSString *dateString = [dateFormat stringFromDate:startDate];
-  NSLog(@"date: %@", dateString);
   
   NSCalendar *calendar = [NSCalendar currentCalendar];
   NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startDate];
@@ -100,7 +99,7 @@
   cell.tripDateLabel.text = dateString;
   cell.startTimeLabel.text = startTime;
   
-  int elapsed = (int) trip[@"duration"];
+  int elapsed = [trip[@"duration"] intValue];
   
   int hours = (int) (elapsed / 3600);
   elapsed -= hours * 3600;
@@ -108,7 +107,7 @@
   elapsed -= mins * 60;
   int secs = (int) elapsed;
   
-  NSString *durationString = [NSString stringWithFormat:@"%u:%u:%02u", hours, mins, secs];
+  NSString *durationString = [NSString stringWithFormat:@"%u h %u m %02u s", hours, mins, secs];
 
   cell.tripDurationLabel.text = durationString;
   

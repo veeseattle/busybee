@@ -21,15 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z56-DL-fBt">
-                                <rect key="frame" x="8" y="10" width="164" height="21"/>
+                                <rect key="frame" x="8" y="10" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuf-mE-rZ4">
-                                <rect key="frame" x="192" y="10" width="120" height="21"/>
+                                <rect key="frame" x="112" y="10" width="200" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="BY9-I0-79Q"/>
+                                    <constraint firstAttribute="width" constant="200" id="BY9-I0-79Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
