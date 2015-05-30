@@ -43,21 +43,10 @@
   UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
   self.navigationItem.titleView = titleView;
   
-  
-}
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-  NSLog(@"didSelectItem: %ld", (long)item.tag);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)lowBatteryButtonClicked {
   [self createAlert:@"Low Battery Warning" withMessage:@"Your battery is below 15%. Your insurance will remain on until you charge your device over 25%."];
-  
 }
 
 - (void)policyExpiredButtonClicked {
@@ -79,8 +68,8 @@
 
 }
 
+#pragma mark - methods to create alerts 
 
-//basic function to create new alert with OK button
 -(void)createAlert:(NSString *)title withMessage:(NSString *)message {
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *okActionButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -102,7 +91,6 @@
   [alert addAction:leftActionButton];
   [alert addAction:okActionButton];
   [self presentViewController:alert animated:true completion:nil];
-  
 }
 
 @end

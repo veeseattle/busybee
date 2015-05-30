@@ -25,7 +25,7 @@
   // Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   
-  // Customize navigation bar appearance.
+  // Customize navigation bar appearance
   [[UINavigationBar appearance] setTranslucent:false];
   [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
   [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0], NSFontAttributeName, nil]];

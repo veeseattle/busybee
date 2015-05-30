@@ -489,6 +489,7 @@
                     <connections>
                         <outlet property="customTopView" destination="Chv-kk-DDE" id="Lk4-ZC-yec"/>
                         <outlet property="tableView" destination="fgP-em-9CL" id="VpP-hw-6hP"/>
+                        <outlet property="topViewStatLabel" destination="SXu-KK-Wal" id="sVP-dL-N52"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clS-oi-vVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
