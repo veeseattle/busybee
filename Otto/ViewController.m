@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CustomNavigationBar.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ottobiglabel;
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
+  self.navigationItem.titleView = titleView;
   
   self.ottobiglabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Light" size:35.0];
   

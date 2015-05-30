@@ -14,7 +14,6 @@
 		4E00821C1B1019BE00BA2613 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E00821B1B1019BE00BA2613 /* Images.xcassets */; };
 		4E00821F1B1019BE00BA2613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E00821D1B1019BE00BA2613 /* LaunchScreen.xib */; };
 		4E00822B1B1019BE00BA2613 /* OttoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E00822A1B1019BE00BA2613 /* OttoTests.m */; };
-		4E0082641B113D7C00BA2613 /* BurgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0082631B113D7C00BA2613 /* BurgerViewController.m */; };
 		4E0082681B113E7C00BA2613 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0082671B113E7C00BA2613 /* MenuTableViewController.m */; };
 		4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E00826E1B11669500BA2613 /* StartStopViewController.m */; };
 		4ED23A881B157A9B00552CD2 /* ActivityLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A871B157A9B00552CD2 /* ActivityLogViewController.m */; };
@@ -52,8 +51,6 @@
 		4E0082241B1019BE00BA2613 /* OttoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0082291B1019BE00BA2613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E00822A1B1019BE00BA2613 /* OttoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttoTests.m; sourceTree = "<group>"; };
-		4E0082621B113D7C00BA2613 /* BurgerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurgerViewController.h; sourceTree = "<group>"; };
-		4E0082631B113D7C00BA2613 /* BurgerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurgerViewController.m; sourceTree = "<group>"; };
 		4E0082651B113E1800BA2613 /* MenuPressedDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuPressedDelegate.h; sourceTree = "<group>"; };
 		4E0082661B113E7C00BA2613 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTableViewController.h; path = ../MenuTableViewController.h; sourceTree = "<group>"; };
 		4E0082671B113E7C00BA2613 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTableViewController.m; path = ../MenuTableViewController.m; sourceTree = "<group>"; };
@@ -187,8 +184,6 @@
 				4E0082131B1019BE00BA2613 /* AppDelegate.m */,
 				4E0082151B1019BE00BA2613 /* ViewController.h */,
 				4E0082161B1019BE00BA2613 /* ViewController.m */,
-				4E0082621B113D7C00BA2613 /* BurgerViewController.h */,
-				4E0082631B113D7C00BA2613 /* BurgerViewController.m */,
 				4E0082661B113E7C00BA2613 /* MenuTableViewController.h */,
 				4E0082671B113E7C00BA2613 /* MenuTableViewController.m */,
 				4E00826D1B11669500BA2613 /* StartStopViewController.h */,
@@ -310,7 +305,6 @@
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,
 				4E0082111B1019BE00BA2613 /* main.m in Sources */,
 				4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */,
-				4E0082641B113D7C00BA2613 /* BurgerViewController.m in Sources */,
 				4EFC18511B16D38900F26155 /* Trip.m in Sources */,
 				4EFC184B1B16D18900F26155 /* Model.xcdatamodeld in Sources */,
 				4EFC18591B16DF4F00F26155 /* DataService.m in Sources */,

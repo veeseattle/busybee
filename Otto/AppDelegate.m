@@ -18,13 +18,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   [[UINavigationBar appearance] setTranslucent:false];
+  [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
+  [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0], NSFontAttributeName, nil]];
+  
   
   [[UILabel appearance] setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0]];
   
-  
   UITabBarController *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"TAB_BAR"];
-  self.window.rootViewController = rootController;
-  //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
   
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:13.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
  

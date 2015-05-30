@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomNavigationBar : UINavigationBar
+@interface CustomNavigationBar : UIView
 
 @property (strong,nonatomic) UILabel *topTitle;
 @property (strong,nonatomic) UILabel *subTitle;
+@property (strong,nonatomic) UIImageView *ottoLogo;
 
 -(instancetype)init;
 

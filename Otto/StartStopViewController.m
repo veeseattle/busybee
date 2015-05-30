@@ -40,9 +40,8 @@
   
   self.navBar = [[UINavigationBar alloc] init];
   [self.view addSubview:self.navBar];
-  
-  UIImageView *logo = [[UIImageView alloc] init];
-  logo.image = [UIImage imageNamed:@"ottoicon.png"];
+  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
+  self.navigationItem.titleView = titleView;
   
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:14.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
   
