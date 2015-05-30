@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,19 +18,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
+  // Initialize Parse.
+  [Parse setApplicationId:@"KuDl7XQpzQhJsPagB4It6e5sL1wjODwiXVjVscHZ"
+                clientKey:@"zXTm0PGu3d76qLQNAYwfohwgxs5J93fMHZZoWyxS"];
+  
+  // Track statistics around application opens.
+  [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+  
+  // Customize navigation bar appearance.
   [[UINavigationBar appearance] setTranslucent:false];
   [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
   [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0], NSFontAttributeName, nil]];
   
-  
+  // Customize default font for labels
   [[UILabel appearance] setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0]];
   
   UITabBarController *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"TAB_BAR"];
   
+  // Customize default tab bar item appearance
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:13.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
  
-  //UITabBar *tabBar = rootController.tabBar;
-
  [self.window setRootViewController:rootController];
   return YES;
 }

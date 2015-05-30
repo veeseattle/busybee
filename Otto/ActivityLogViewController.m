@@ -8,15 +8,13 @@
 
 #import "ActivityLogViewController.h"
 #import "LogTableViewCell.h"
-#import "DataService.h"
-#import <CoreData/CoreData.h>
 #import "CustomNavigationBar.h"
+#import <Parse/Parse.h>
 
 @interface ActivityLogViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *activitiesArray;
-@property (strong, nonatomic) NSManagedObjectContext *context;
+@property (strong, nonatomic) NSArray *activitiesArray;
 
 @property (weak, nonatomic) IBOutlet UIView *customTopView;
 
@@ -37,7 +35,7 @@
   
   UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
   self.navigationItem.titleView = titleView;
-
+  
   UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.customTopView.bounds];
   self.customTopView.layer.masksToBounds = NO;
   self.customTopView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -45,10 +43,7 @@
   self.customTopView.layer.shadowOpacity = 0.5f;
   self.customTopView.layer.shadowPath = shadowPath.CGPath;
   
-  NSDictionary *trip1 = @{ @"firstLine" : @"May 17, 2015", @"secondLine" : @"12:35pm", @"thirdLine" : @"1:10pm"};
-  NSDictionary *trip2 = @{ @"firstLine" : @"May 18, 2015", @"secondLine" : @"2:35pm", @"thirdLine" : @"2:46pm"};
-  NSDictionary *trip3 = @{ @"firstLine" : @"May 18, 2015", @"secondLine" : @"7:12pm", @"thirdLine" : @"8:10pm"};
-  self.activitiesArray = [[NSMutableArray alloc] initWithArray:@[trip1, trip2, trip3]];
+  self.activitiesArray = [[NSArray alloc] init];
   
   [self fetchTrips];
   
@@ -56,21 +51,75 @@
 
 
 - (void)fetchTrips {
-  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Trip"];
-  NSError *fetchErr;
-  NSArray *activityResults = [self.context executeFetchRequest:fetchRequest error:&fetchErr];
+  PFQuery *query = [PFQuery queryWithClassName:@"Trip"];
+  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if (!error) {
+      self.activitiesArray = objects;
+    }
+    else {
+      NSLog(@"Error: %@ %@", error, [error userInfo]);
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.tableView reloadData];
+    });
+  }];
+ 
   
-  NSLog(@"There are %lu trips", (unsigned long)activityResults.count);
   
+}
+
+- (void)deleteTrip:(NSString *)objectId {
+  PFQuery *query = [PFQuery queryWithClassName:@"Trip"];
+  [query whereKey:@"objectId" equalTo:objectId];
+  
+  [query getObjectInBackgroundWithId:objectId block:^(PFObject *trip, NSError *error){
+    [trip deleteInBackground];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self fetchTrips];
+    });
+  }];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   LogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LOG_CELL" forIndexPath:indexPath];
-  NSDictionary *trip = self.activitiesArray[indexPath.row];
-  cell.tripDateLabel.text = trip[@"firstLine"];
-  cell.tripDurationLabel.text = @"XX min";
-  cell.startTimeLabel.text = trip[@"secondLine"];
-  cell.endTimeLabel.text = trip[@"thirdLine"];
+  PFObject *trip = self.activitiesArray[indexPath.row];
+  
+  NSDate *startDate = trip[@"startTime"];
+  NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+  [dateFormat setDateFormat:@"MM/dd/yy"];
+  NSString *dateString = [dateFormat stringFromDate:startDate];
+  NSLog(@"date: %@", dateString);
+  
+  NSCalendar *calendar = [NSCalendar currentCalendar];
+  NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startDate];
+  NSInteger hour = [components hour];
+  NSInteger minute = [components minute];
+  NSString *startTime = [NSString stringWithFormat:@"%ld:%ld", (long)hour, (long)minute];
+  
+  cell.tripDateLabel.text = dateString;
+  cell.startTimeLabel.text = startTime;
+  
+  int elapsed = (int) trip[@"duration"];
+  
+  int hours = (int) (elapsed / 3600);
+  elapsed -= hours * 3600;
+  int mins = (int) (elapsed / 60);
+  elapsed -= mins * 60;
+  int secs = (int) elapsed;
+  
+  NSString *durationString = [NSString stringWithFormat:@"%u:%u:%02u", hours, mins, secs];
+
+  cell.tripDurationLabel.text = durationString;
+  
+  NSDate *endTime = trip.createdAt;
+  
+  NSDateComponents *endTimeComponents = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:endTime];
+  NSInteger endHour = [endTimeComponents hour];
+  NSInteger endMinute = [endTimeComponents minute];
+  NSString *endTimeString = [NSString stringWithFormat:@"%ld:%ld", (long)endHour, (long)endMinute];
+  
+  cell.endTimeLabel.text = endTimeString;
   return cell;
 }
 
@@ -85,7 +134,8 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   if (editingStyle == UITableViewCellEditingStyleDelete) {
-    [self.activitiesArray removeObjectAtIndex:indexPath.row];
+    NSString *objectIdToDelete = [self.activitiesArray[indexPath.row] objectId];
+    [self deleteTrip:objectIdToDelete];
     [self.tableView reloadData];
   }
 }

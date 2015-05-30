@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface Trip : NSManagedObject
+@interface Trip : NSObject
 
 @property (strong,nonatomic) NSDate *tripDate;
 @property (assign) int tripDuration;

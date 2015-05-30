@@ -7,10 +7,9 @@
 //
 
 #import "StartStopViewController.h"
-#import "DataService.h"
 #import "Trip.h"
-#import <CoreData/CoreData.h>
 #import "CustomNavigationBar.h"
+#import <Parse/Parse.h>
 
 @interface StartStopViewController() <UITabBarDelegate>
 
@@ -71,17 +70,16 @@
 }
 - (void)addNewActivity:(NSDate*)startTime withDuration:(int)tripDuration {
   
-  Trip *trip = [NSEntityDescription insertNewObjectForEntityForName:@"Trip" inManagedObjectContext:[[DataService sharedService] coreDataStack].managedObjectContext];
-  
-  NSDate *today = [NSDate date];
-  NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-  [dateFormat setDateFormat:@"MM/dd/yy"];
-  NSString *dateString = [dateFormat stringFromDate:today];
-  NSLog(@"date: %@", dateString);
-  
-  [[DataService sharedService] addNewTrip:today withStartTime:trip.startTime tripDuration:1];
-  [self dismissViewControllerAnimated:true completion:nil];
-  
+  PFObject *trip = [PFObject objectWithClassName:@"Trip"];
+  trip[@"startTime"] = startTime;
+  trip[@"duration"] = [NSNumber numberWithInt:tripDuration];
+  [trip saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    if (succeeded) {
+      NSLog(@"success!");
+    } else {
+      NSLog(@"fail");
+    }
+  }];
 }
 
 
@@ -100,8 +98,12 @@
     self.isRunning = false;
     [sender setTitle:@"START" forState:UIControlStateNormal];
     [sender setBackgroundColor:[UIColor colorWithRed:26/255.0 green:195/255.0 blue:71/255.0 alpha:1.0]];
-    //save to core data
-    [self addNewActivity:[NSDate date] withDuration:1];
+    
+    int duration = [NSDate timeIntervalSinceReferenceDate] - self.startTime;
+    
+    NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:self.startTime];
+    
+    [self addNewActivity:startDate withDuration:duration];
   }
 }
 

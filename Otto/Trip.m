@@ -10,9 +10,5 @@
 
 @implementation Trip
 
-@synthesize tripDate;
-@synthesize tripDuration;
-@synthesize startTime;
-@synthesize endTime;
 
 @end

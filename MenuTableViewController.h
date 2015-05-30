@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MenuPressedDelegate.h"
 
 @interface MenuTableViewController : UITableViewController
 
-@property (weak,nonatomic) id<MenuPressedDelegate> delegate;
 
 
 @end
