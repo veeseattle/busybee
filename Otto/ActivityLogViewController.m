@@ -8,7 +8,7 @@
 
 #import "ActivityLogViewController.h"
 #import "LogTableViewCell.h"
-#import "CustomNavigationBar.h"
+#import "AppUtils.h"
 #import <Parse/Parse.h>
 
 @interface ActivityLogViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -48,9 +48,13 @@
   self.customTopView.layer.shadowOpacity = 0.5f;
   self.customTopView.layer.shadowPath = shadowPath.CGPath;
   
-  self.activitiesArray = [[NSArray alloc] init];
-  
-  [self fetchTrips];
+  [AppUtils fetchTrips:^(NSArray *objects) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.activitiesArray = objects;
+      [self.tableView reloadData];
+      [self recalculateTotalForMonth];
+    });
+  }];
   
   self.currentMonth = [self getCurrentMonth:[NSDate date]];
 }
@@ -94,31 +98,14 @@
 
 #pragma mark - Parse methods
 
-- (void)fetchTrips {
-  PFQuery *query = [PFQuery queryWithClassName:@"Trip"];
-  
-  [query addAscendingOrder:@"createdAt"];
-  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-    if (!error) {
-      self.activitiesArray = objects;
-    }
-    else {
-      NSLog(@"Error: %@ %@", error, [error userInfo]);
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [self.tableView reloadData];
-      [self recalculateTotalForMonth];
-    });
-  }];
-}
-
 - (void)deleteTrip:(NSString *)objectId {
   PFQuery *query = [PFQuery queryWithClassName:@"Trip"];
   [query whereKey:@"objectId" equalTo:objectId];
   [query getObjectInBackgroundWithId:objectId block:^(PFObject *trip, NSError *error){
     [trip deleteInBackground];
     dispatch_async(dispatch_get_main_queue(), ^{
-      [self fetchTrips];
+      //self.activitiesArray = [AppUtils fetchTrips];
+      [self.tableView reloadData];
     });
   }];
 }

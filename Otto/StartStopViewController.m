@@ -31,8 +31,6 @@
   self.stopwatchButton.layer.borderWidth = 3;
   [self.stopwatchButton addTarget:self action:@selector(stopwatchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   
-//  self.navBar = [[UINavigationBar alloc] init];
-//  [self.view addSubview:self.navBar];
   UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
   self.navigationItem.titleView = titleView;
   
@@ -60,7 +58,7 @@
     [sender setBackgroundColor:[UIColor colorWithRed:26/255.0 green:195/255.0 blue:71/255.0 alpha:1.0]];
     int duration = [NSDate timeIntervalSinceReferenceDate] - self.startTime;
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:self.startTime];
-    
+    self.lapsedTimeLabel.text = @"Current trip: 0:00:00";
     //save new trip to Parse
     [self addNewActivity:startDate withDuration:duration];
   }
@@ -78,7 +76,7 @@
     elapsed -= mins * 60;
     int secs = (int) elapsed;
     
-    self.lapsedTimeLabel.text = [NSString stringWithFormat:@"%u:%u:%02u", hours, mins, secs];
+    self.lapsedTimeLabel.text = [NSString stringWithFormat:@"Current trip: %u:%u:%02u", hours, mins, secs];
     
     [self performSelector:@selector(addTime) withObject:self afterDelay:0.1];
   }

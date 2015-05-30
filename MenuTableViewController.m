@@ -13,15 +13,13 @@
 #import "AlertViewController.h"
 
 @interface MenuTableViewController () <UINavigationControllerDelegate>
-//
-//@property (strong, nonatomic) UINavigationController *searchVC;
+
 @property (nonatomic) NSInteger selectedRow;
 @property (strong,nonatomic) MenuTableViewController *menuVC;
 @property (strong,nonatomic) StartStopViewController *startVC;
 @property (strong,nonatomic) ViewController *mainVC;
 @property (strong,nonatomic) ActivityLogViewController *activityVC;
 @property (strong,nonatomic) AlertViewController *alertVC;
-
 
 @end
 
@@ -54,9 +52,6 @@
   NSLog(@"%ld",(long)selectedRow);
   UIViewController *destinationVC;
   switch (selectedRow) {
-//    case 0:
-//      destinationVC = self.mainVC;
-//      break;
     case 1:
       destinationVC = self.startVC;
       break;

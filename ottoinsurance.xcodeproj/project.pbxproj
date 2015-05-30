@@ -40,6 +40,7 @@
 		4EFC18E21B195AF200F26155 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18DC1B195AF200F26155 /* ParseFacebookUtils.framework */; };
 		4EFC18E31B195AF200F26155 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18DD1B195AF200F26155 /* ParseFacebookUtilsV4.framework */; };
 		4EFC18E41B195AF200F26155 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18DE1B195AF200F26155 /* ParseUI.framework */; };
+		4EFC18E71B1A46E300F26155 /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18E61B1A46E300F26155 /* AppUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		4EFC18DC1B195AF200F26155 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		4EFC18DD1B195AF200F26155 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		4EFC18DE1B195AF200F26155 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		4EFC18E51B1A46E300F26155 /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUtils.h; sourceTree = "<group>"; };
+		4EFC18E61B1A46E300F26155 /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 		4E0082691B113EC200BA2613 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4EFC18E51B1A46E300F26155 /* AppUtils.h */,
+				4EFC18E61B1A46E300F26155 /* AppUtils.m */,
 				4EFC18B01B17D5C100F26155 /* CustomNavigationBar.h */,
 				4EFC18B11B17D5C100F26155 /* CustomNavigationBar.m */,
 				4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */,
@@ -369,6 +374,7 @@
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,
 				4E0082111B1019BE00BA2613 /* main.m in Sources */,
 				4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */,
+				4EFC18E71B1A46E300F26155 /* AppUtils.m in Sources */,
 				4ED23A881B157A9B00552CD2 /* ActivityLogViewController.m in Sources */,
 				4E0082681B113E7C00BA2613 /* MenuTableViewController.m in Sources */,
 			);
