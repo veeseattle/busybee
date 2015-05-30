@@ -53,14 +53,8 @@
 #pragma mark - Parse methods
 
 + (void)fetchTrips:(void(^)(NSArray *objects))completionBlock {
-  
-  /*- (void)loginUserWithUsername:(NSString *)username
-password:(NSString *)password
-completion:(void(^)(bool *finished))completionBlock
-  {*/
-  
   PFQuery *query = [PFQuery queryWithClassName:@"Trip"];
-  [query addAscendingOrder:@"createdAt"];
+  [query addDescendingOrder:@"createdAt"];
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (!error) {
       completionBlock(objects);

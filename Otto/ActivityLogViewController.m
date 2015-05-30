@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *customTopView;
 @property (weak, nonatomic) IBOutlet UILabel *topViewStatLabel;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 @property (assign) NSInteger currentMonth;
 
@@ -48,9 +49,9 @@
   self.customTopView.layer.shadowOpacity = 0.5f;
   self.customTopView.layer.shadowPath = shadowPath.CGPath;
   
-  [self getDataForTableView];
+  [self getDataForTableView]; //populates table with data from Parse
   
-  self.currentMonth = [self getCurrentMonth:[NSDate date]];
+  [self.refreshButton addTarget:self action:@selector(getDataForTableView) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) getDataForTableView {
@@ -58,47 +59,10 @@
     dispatch_async(dispatch_get_main_queue(), ^{
       self.activitiesArray = objects;
       [self.tableView reloadData];
-      [self recalculateTotalForMonth];
+      self.topViewStatLabel.text = [AppUtils recalculateTotalForMonth:objects];
     });
   }];
 }
-
-- (NSInteger) getCurrentMonth:(NSDate *)date {
-  NSDate *currentDate = [NSDate date];
-  NSCalendar *calendar = [NSCalendar currentCalendar];
-  NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:currentDate]; // Get necessary date components
-  NSInteger currentMonth = [components month];
-  return currentMonth;
-}
-
-#pragma mark - topViewStat method
-
-- (void) recalculateTotalForMonth {
-  int elapsed = 0;
-  
-  //for every trip from Parse, filter for current month and calculate total hours driven
-  for (PFObject *trip in self.activitiesArray) {
-    NSInteger tripMonth = [self getCurrentMonth:trip.createdAt];
-    if (tripMonth == self.currentMonth) {
-      elapsed += [trip[@"duration"] intValue];
-    }
-  }
-  
-  //format total hours, mins, secs
-  int hours = (int) (elapsed / 3600);
-  elapsed -= hours * 3600;
-  int mins = (int) (elapsed / 60);
-  elapsed -= mins * 60;
-  int secs = (int) elapsed;
-  
-  //format current date into MMMM yyyy (e.g. May 2015)
-  NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-  [dateFormat setDateFormat:@"MMMM yyyy"];
-  NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
-  
-  self.topViewStatLabel.text = [NSString stringWithFormat:@"%@ | %u h %u m %02u s", dateString, hours, mins, secs];
-}
-
 
 #pragma mark - Parse methods
 
@@ -127,19 +91,14 @@
   cell.tripDateLabel.text = dateString;
   
   //display start time in hh:mm format
-  NSCalendar *calendar = [NSCalendar currentCalendar];
-  NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:startDate];
-  NSInteger hour = [components hour];
-  NSInteger minute = [components minute];
-  NSString *startTime = [NSString stringWithFormat:@"%ld:%ld", (long)hour, (long)minute];
-  cell.startTimeLabel.text = startTime;
+  NSDateFormatter *dformat = [[NSDateFormatter alloc]init];
+  [dformat setDateFormat:@"HH:mm"];
+  NSString *startTimeString = [dformat stringFromDate:startDate];
+  cell.startTimeLabel.text = startTimeString;
   
   //display end time in hh:mm format
   NSDate *endTime = trip.createdAt;
-  NSDateComponents *endTimeComponents = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:endTime];
-  NSInteger endHour = [endTimeComponents hour];
-  NSInteger endMinute = [endTimeComponents minute];
-  NSString *endTimeString = [NSString stringWithFormat:@"%ld:%ld", (long)endHour, (long)endMinute];
+  NSString *endTimeString = [dformat stringFromDate:endTime];
   cell.endTimeLabel.text = endTimeString;
   
   //calculate and display duration in hours, mins, and secs

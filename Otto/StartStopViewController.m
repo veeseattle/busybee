@@ -7,6 +7,7 @@
 //
 
 #import "StartStopViewController.h"
+#import "AppUtils.h"
 #import <Parse/Parse.h>
 
 @interface StartStopViewController() <UITabBarDelegate>
@@ -15,6 +16,10 @@
 @property (assign) NSDate *start;
 @property (assign) BOOL isRunning;
 @property (strong,nonatomic) UINavigationBar *navBar;
+
+@property (weak, nonatomic) IBOutlet UIView *customTopView;
+@property (weak, nonatomic) IBOutlet UILabel *topViewStatLabel;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *stopwatchButton;
 
@@ -35,8 +40,18 @@
   self.navigationItem.titleView = titleView;
   
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:14.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
-  
+
+  [self.refreshButton addTarget:self action:@selector(getDataForTopView) forControlEvents:UIControlEventTouchUpInside];
 }
+
+- (void) getDataForTopView {
+  [AppUtils fetchTrips:^(NSArray *objects) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.topViewStatLabel.text = [AppUtils recalculateTotalForMonth:objects];
+    });
+  }];
+}
+
 
 #pragma mark - stopwatch functions
 
@@ -92,6 +107,7 @@
   [trip saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     if (succeeded) {
       NSLog(@"success!");
+      [self getDataForTopView];
     } else {
       NSLog(@"fail");
     }

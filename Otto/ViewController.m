@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "CustomNavigationBar.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ottobiglabel;

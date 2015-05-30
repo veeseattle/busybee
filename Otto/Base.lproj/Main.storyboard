@@ -453,12 +453,22 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oa-FK-tqd" userLabel="RefreshButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="4oa-FK-tqd" firstAttribute="leading" secondItem="Chv-kk-DDE" secondAttribute="leading" id="ABA-b4-u0g"/>
                                     <constraint firstItem="SXu-KK-Wal" firstAttribute="top" secondItem="Chv-kk-DDE" secondAttribute="top" constant="50" id="NcA-gT-jN2"/>
+                                    <constraint firstItem="4oa-FK-tqd" firstAttribute="top" secondItem="Chv-kk-DDE" secondAttribute="top" id="SXu-Fh-fg0"/>
                                     <constraint firstItem="SXu-KK-Wal" firstAttribute="top" secondItem="Chv-kk-DDE" secondAttribute="top" constant="10" id="esK-HK-yyv"/>
+                                    <constraint firstAttribute="trailing" secondItem="4oa-FK-tqd" secondAttribute="trailing" id="fR2-6C-ZCc"/>
                                     <constraint firstAttribute="centerX" secondItem="SXu-KK-Wal" secondAttribute="centerX" id="sFx-5p-The"/>
+                                    <constraint firstAttribute="bottom" secondItem="4oa-FK-tqd" secondAttribute="bottom" id="udq-QK-dhB"/>
                                     <constraint firstAttribute="height" constant="35" id="wdu-so-8tf"/>
                                 </constraints>
                                 <variation key="default">
@@ -488,6 +498,7 @@
                     <navigationItem key="navigationItem" id="wO0-pD-j3M"/>
                     <connections>
                         <outlet property="customTopView" destination="Chv-kk-DDE" id="Lk4-ZC-yec"/>
+                        <outlet property="refreshButton" destination="4oa-FK-tqd" id="kVZ-S4-74Q"/>
                         <outlet property="tableView" destination="fgP-em-9CL" id="VpP-hw-6hP"/>
                         <outlet property="topViewStatLabel" destination="SXu-KK-Wal" id="sVP-dL-N52"/>
                     </connections>
@@ -526,12 +537,49 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFD-d8-Efj">
+                                <rect key="frame" x="0.0" y="64" width="600" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tU-dF-XA8" userLabel="RefreshButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="35"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 2015 | 3 hours 7 minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcn-47-1O2">
+                                        <rect key="frame" x="187" y="10" width="227" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="I3b-lk-N0Z"/>
+                                    <constraint firstItem="wcn-47-1O2" firstAttribute="top" secondItem="RFD-d8-Efj" secondAttribute="top" constant="10" id="L6H-P0-KKh"/>
+                                    <constraint firstItem="wcn-47-1O2" firstAttribute="top" secondItem="RFD-d8-Efj" secondAttribute="top" constant="50" id="hL1-Oy-h6v"/>
+                                    <constraint firstAttribute="trailing" secondItem="5tU-dF-XA8" secondAttribute="trailing" id="jsD-hP-yiR"/>
+                                    <constraint firstAttribute="centerX" secondItem="wcn-47-1O2" secondAttribute="centerX" id="kbj-pp-6wl"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="kq9-rT-zMC"/>
+                                    <constraint firstItem="5tU-dF-XA8" firstAttribute="top" secondItem="RFD-d8-Efj" secondAttribute="top" id="sa9-xV-DCe"/>
+                                    <constraint firstAttribute="bottom" secondItem="5tU-dF-XA8" secondAttribute="bottom" id="tAP-9i-cel"/>
+                                    <constraint firstItem="5tU-dF-XA8" firstAttribute="leading" secondItem="RFD-d8-Efj" secondAttribute="leading" id="u7c-al-Obl"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hL1-Oy-h6v"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YsG-ZJ-IJd" firstAttribute="top" secondItem="4Ab-5a-UZR" secondAttribute="bottom" constant="100" id="4O8-xB-7oC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u7A-Fr-XD4" secondAttribute="trailing" constant="100" id="BCo-zt-yZB"/>
                             <constraint firstAttribute="centerX" secondItem="u7A-Fr-XD4" secondAttribute="centerX" id="KcT-Sj-tp1"/>
+                            <constraint firstItem="RFD-d8-Efj" firstAttribute="leading" secondItem="xpf-Fs-2pd" secondAttribute="leadingMargin" constant="-16" id="Mew-r8-3s6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RFD-d8-Efj" secondAttribute="trailing" constant="-16" id="QTo-n1-r2O"/>
+                            <constraint firstItem="RFD-d8-Efj" firstAttribute="top" secondItem="4Ab-5a-UZR" secondAttribute="bottom" id="U8m-1s-6b9"/>
                             <constraint firstAttribute="centerY" secondItem="YsG-ZJ-IJd" secondAttribute="centerY" constant="50" id="ew1-B8-ASZ"/>
                             <constraint firstItem="u7A-Fr-XD4" firstAttribute="top" secondItem="YsG-ZJ-IJd" secondAttribute="bottom" constant="50" id="kb8-mI-De9"/>
                             <constraint firstAttribute="centerX" secondItem="YsG-ZJ-IJd" secondAttribute="centerX" id="oFa-Xp-xVn"/>
@@ -546,8 +594,11 @@
                     <navigationItem key="navigationItem" id="NJ6-2H-muS"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="customTopView" destination="RFD-d8-Efj" id="caE-qn-1XT"/>
                         <outlet property="lapsedTimeLabel" destination="u7A-Fr-XD4" id="nRh-vE-xlg"/>
+                        <outlet property="refreshButton" destination="5tU-dF-XA8" id="vIp-kl-RtA"/>
                         <outlet property="stopwatchButton" destination="YsG-ZJ-IJd" id="0eG-yK-MI2"/>
+                        <outlet property="topViewStatLabel" destination="wcn-47-1O2" id="axn-RY-sXQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eUW-QK-hfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
