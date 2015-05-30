@@ -20,7 +20,6 @@
 		4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */; };
 		4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */; };
 		4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8F1B1586F700552CD2 /* AlertViewController.m */; };
-		4EFC18B21B17D5C100F26155 /* CustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC18B11B17D5C100F26155 /* CustomNavigationBar.m */; };
 		4EFC18BF1B195A8400F26155 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18BE1B195A8400F26155 /* AudioToolbox.framework */; };
 		4EFC18C11B195A8A00F26155 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18C01B195A8A00F26155 /* CFNetwork.framework */; };
 		4EFC18C31B195A8F00F26155 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18C21B195A8F00F26155 /* CoreGraphics.framework */; };
@@ -78,8 +77,6 @@
 		4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
 		4ED23A8E1B1586F700552CD2 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		4ED23A8F1B1586F700552CD2 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
-		4EFC18B01B17D5C100F26155 /* CustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationBar.h; sourceTree = "<group>"; };
-		4EFC18B11B17D5C100F26155 /* CustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationBar.m; sourceTree = "<group>"; };
 		4EFC18BE1B195A8400F26155 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4EFC18C01B195A8A00F26155 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4EFC18C21B195A8F00F26155 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,8 +199,6 @@
 			children = (
 				4EFC18E51B1A46E300F26155 /* AppUtils.h */,
 				4EFC18E61B1A46E300F26155 /* AppUtils.m */,
-				4EFC18B01B17D5C100F26155 /* CustomNavigationBar.h */,
-				4EFC18B11B17D5C100F26155 /* CustomNavigationBar.m */,
 				4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */,
 				4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */,
 			);
@@ -368,7 +363,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0082171B1019BE00BA2613 /* ViewController.m in Sources */,
-				4EFC18B21B17D5C100F26155 /* CustomNavigationBar.m in Sources */,
 				4E0082141B1019BE00BA2613 /* AppDelegate.m in Sources */,
 				4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */,
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,

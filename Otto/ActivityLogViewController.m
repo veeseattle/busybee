@@ -48,6 +48,12 @@
   self.customTopView.layer.shadowOpacity = 0.5f;
   self.customTopView.layer.shadowPath = shadowPath.CGPath;
   
+  [self getDataForTableView];
+  
+  self.currentMonth = [self getCurrentMonth:[NSDate date]];
+}
+
+- (void) getDataForTableView {
   [AppUtils fetchTrips:^(NSArray *objects) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.activitiesArray = objects;
@@ -55,8 +61,6 @@
       [self recalculateTotalForMonth];
     });
   }];
-  
-  self.currentMonth = [self getCurrentMonth:[NSDate date]];
 }
 
 - (NSInteger) getCurrentMonth:(NSDate *)date {
@@ -104,8 +108,7 @@
   [query getObjectInBackgroundWithId:objectId block:^(PFObject *trip, NSError *error){
     [trip deleteInBackground];
     dispatch_async(dispatch_get_main_queue(), ^{
-      //self.activitiesArray = [AppUtils fetchTrips];
-      [self.tableView reloadData];
+      [self getDataForTableView];
     });
   }];
 }
