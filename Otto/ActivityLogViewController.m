@@ -92,7 +92,7 @@
   
   //display start time in hh:mm format
   NSDateFormatter *dformat = [[NSDateFormatter alloc]init];
-  [dformat setDateFormat:@"HH:mm"];
+  [dformat setDateFormat:@"hh:mm a"];
   NSString *startTimeString = [dformat stringFromDate:startDate];
   cell.startTimeLabel.text = startTimeString;
   
