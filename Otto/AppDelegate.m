@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppUtils.h"
 #import <Parse/Parse.h>
 
 @interface AppDelegate ()
@@ -19,15 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   // Initialize Parse.
-  [Parse setApplicationId:@"KuDl7XQpzQhJsPagB4It6e5sL1wjODwiXVjVscHZ"
-                clientKey:@"zXTm0PGu3d76qLQNAYwfohwgxs5J93fMHZZoWyxS"];
+  [Parse setApplicationId:@"q29iMM7Y2t9qmfheI3LX5agt3eTFvQmUkuGYtYtC" clientKey:@"pcrzLIXaRMb1m3uFlFwaZSoAkGKCHCGpoRxHpTwP"];
+  [PFUser enableRevocableSessionInBackground];
   
   // Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   
   // Customize navigation bar appearance
   [[UINavigationBar appearance] setTranslucent:false];
-  [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:81/255.0 green:191/255.0 blue:243/255.0 alpha:1.0]];
+  [[UINavigationBar appearance] setBarTintColor:globalColor];
   [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0], NSFontAttributeName, nil]];
   
   // Customize default font for labels

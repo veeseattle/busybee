@@ -10,5 +10,8 @@
 
 @interface ActivityCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+
 
 @end

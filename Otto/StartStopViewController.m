@@ -47,7 +47,7 @@
 }
 
 - (void) getDataForTopView {
-  [AppUtils fetchTrips:^(NSArray *objects) {
+  [AppUtils fetchData:^(NSArray *objects) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.topViewStatLabel.text = [AppUtils recalculateTotalForMonth:objects];
     });
@@ -75,7 +75,7 @@
     [sender setBackgroundColor:[UIColor colorWithRed:26/255.0 green:195/255.0 blue:71/255.0 alpha:1.0]];
     int duration = [NSDate timeIntervalSinceReferenceDate] - self.startTime;
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:self.startTime];
-    self.lapsedTimeLabel.text = @"Current trip: 0:00:00";
+    self.lapsedTimeLabel.text = @"0:00:00";
     //save new trip to Parse
     [self addNewActivity:startDate withDuration:duration];
   }

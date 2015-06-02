@@ -56,7 +56,7 @@
 }
 
 - (void) getDataForTableView {
-  [AppUtils fetchTrips:^(NSArray *objects) {
+  [AppUtils fetchData:^(NSArray *objects) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.activitiesArray = objects;
       [self.tableView reloadData];

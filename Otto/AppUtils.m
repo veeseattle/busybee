@@ -22,15 +22,26 @@
 }
 
 
-+ (NSString *) recalculateTotalForMonth:(NSArray *)tripsArray {
++ (NSString *) formatTimeToString:(int)elapsed {
+  int hours = (int) (elapsed / 3600);
+  elapsed -= hours * 3600;
+  int mins = (int) (elapsed/60);
+  elapsed -= mins * 60;
+  int secs = (int) elapsed;
+  
+  NSString *time = [NSString stringWithFormat:@"%u h %u m %02u s", hours, mins, secs];
+  return time;
+}
+
++ (NSString *) recalculateTotalForMonth:(NSArray *)dataArray {
   int elapsed = 0;
   
   //for every trip from Parse, filter for current month and calculate total hours driven
-  for (PFObject *trip in tripsArray) {
-    NSInteger tripMonth = [self getMonth:trip.createdAt];
+  for (PFObject *data in dataArray) {
+    NSInteger tripMonth = [self getMonth:data.createdAt];
     NSInteger currentMonth = [self getMonth:[NSDate date]];
     if (tripMonth == currentMonth) {
-      elapsed += [trip[@"duration"] intValue];
+      elapsed += [data[@"duration"] intValue];
     }
   }
   
@@ -52,9 +63,10 @@
 
 #pragma mark - Parse methods
 
-+ (void)fetchTrips:(void(^)(NSArray *objects))completionBlock {
-  PFQuery *query = [PFQuery queryWithClassName:@"Trip"];
-  [query addDescendingOrder:@"createdAt"];
++ (void)fetchData:(void(^)(NSArray *objects))completionBlock {
+  PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+  [query whereKey:@"owner" equalTo:[PFUser currentUser]];
+  [query addDescendingOrder:@"updatedAt"];
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (!error) {
       completionBlock(objects);
@@ -64,6 +76,5 @@
     }
   }];
 }
-
 
 @end
