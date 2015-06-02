@@ -1,5 +1,5 @@
 //
-//  AlertViewController.h
+//  ActivityCell.h
 //  ottoinsurance
 //
 //  Created by Vania Kurniawati on 5/26/15.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlertViewController : UIViewController
+@interface ActivityCell : UITableViewCell
+
 
 @end

@@ -10,10 +10,12 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ottolaunchlong" translatesAutoresizingMaskIntoConstraints="NO" id="EFb-vt-3sr">
-                    <rect key="frame" x="-16" y="0.0" width="512" height="844"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="busy bee-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="EFb-vt-3sr">
+                    <rect key="frame" x="140" y="50" width="200" height="100"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="200" id="1Yl-G6-sdX"/>
                         <constraint firstAttribute="height" constant="120" id="7yi-cq-Iaj"/>
+                        <constraint firstAttribute="height" constant="100" id="Kd9-cD-izT"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -21,29 +23,30 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Otto Insurance. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Vania Kurniawati. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.26666666666666666" green="0.69411764705882351" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.3411764706" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="EFb-vt-3sr" secondAttribute="bottom" id="QZE-bD-Lsn"/>
-                <constraint firstAttribute="trailing" secondItem="EFb-vt-3sr" secondAttribute="trailing" constant="-16" id="Qua-x3-X7b"/>
                 <constraint firstItem="EFb-vt-3sr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-16" id="Vnr-ra-MHk"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstAttribute="centerY" secondItem="EFb-vt-3sr" secondAttribute="centerY" id="j2o-Bz-csu"/>
-                <constraint firstItem="EFb-vt-3sr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mdW-pS-B6a"/>
+                <constraint firstAttribute="centerX" secondItem="EFb-vt-3sr" secondAttribute="centerX" id="kNf-Qd-HrN"/>
+                <constraint firstItem="EFb-vt-3sr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="mdW-pS-B6a"/>
                 <constraint firstAttribute="centerX" secondItem="EFb-vt-3sr" secondAttribute="centerX" id="z8o-uy-yBm"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="Vnr-ra-MHk"/>
                     <exclude reference="j2o-Bz-csu"/>
                     <exclude reference="z8o-uy-yBm"/>
                     <exclude reference="QZE-bD-Lsn"/>
@@ -53,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ottolaunchlong" width="576" height="844"/>
+        <image name="busy bee-logo-white" width="2000" height="1322"/>
     </resources>
 </document>

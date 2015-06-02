@@ -14,12 +14,12 @@
 		4E00821C1B1019BE00BA2613 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E00821B1B1019BE00BA2613 /* Images.xcassets */; };
 		4E00821F1B1019BE00BA2613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E00821D1B1019BE00BA2613 /* LaunchScreen.xib */; };
 		4E00822B1B1019BE00BA2613 /* OttoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E00822A1B1019BE00BA2613 /* OttoTests.m */; };
-		4E0082681B113E7C00BA2613 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0082671B113E7C00BA2613 /* MenuTableViewController.m */; };
 		4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E00826E1B11669500BA2613 /* StartStopViewController.m */; };
+		4EB0B87A1B1E3A41008FFF3D /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EB0B8791B1E3A41008FFF3D /* ActivityCell.xib */; };
+		4EB0B87D1B1E3AFB008FFF3D /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB0B87C1B1E3AFB008FFF3D /* ActivityCell.m */; };
 		4ED23A881B157A9B00552CD2 /* ActivityLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A871B157A9B00552CD2 /* ActivityLogViewController.m */; };
 		4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */; };
 		4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */; };
-		4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8F1B1586F700552CD2 /* AlertViewController.m */; };
 		4EFC18BF1B195A8400F26155 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18BE1B195A8400F26155 /* AudioToolbox.framework */; };
 		4EFC18C11B195A8A00F26155 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18C01B195A8A00F26155 /* CFNetwork.framework */; };
 		4EFC18C31B195A8F00F26155 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18C21B195A8F00F26155 /* CoreGraphics.framework */; };
@@ -53,7 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E00820B1B1019BE00BA2613 /* ottoinsurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ottoinsurance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E00820B1B1019BE00BA2613 /* busybee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = busybee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E00820F1B1019BE00BA2613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0082101B1019BE00BA2613 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E0082121B1019BE00BA2613 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,17 +66,16 @@
 		4E0082241B1019BE00BA2613 /* OttoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OttoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0082291B1019BE00BA2613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E00822A1B1019BE00BA2613 /* OttoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OttoTests.m; sourceTree = "<group>"; };
-		4E0082661B113E7C00BA2613 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuTableViewController.h; path = ../MenuTableViewController.h; sourceTree = "<group>"; };
-		4E0082671B113E7C00BA2613 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuTableViewController.m; path = ../MenuTableViewController.m; sourceTree = "<group>"; };
 		4E00826D1B11669500BA2613 /* StartStopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartStopViewController.h; sourceTree = "<group>"; };
 		4E00826E1B11669500BA2613 /* StartStopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartStopViewController.m; sourceTree = "<group>"; };
+		4EB0B8791B1E3A41008FFF3D /* ActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
+		4EB0B87B1B1E3A83008FFF3D /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
+		4EB0B87C1B1E3AFB008FFF3D /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
 		4ED23A861B157A9B00552CD2 /* ActivityLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityLogViewController.h; sourceTree = "<group>"; };
 		4ED23A871B157A9B00552CD2 /* ActivityLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityLogViewController.m; sourceTree = "<group>"; };
 		4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableViewCell.h; sourceTree = "<group>"; };
 		4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewCell.m; sourceTree = "<group>"; };
 		4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
-		4ED23A8E1B1586F700552CD2 /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
-		4ED23A8F1B1586F700552CD2 /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
 		4EFC18BE1B195A8400F26155 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4EFC18C01B195A8A00F26155 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4EFC18C21B195A8F00F26155 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -141,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4EFC18D81B195AD600F26155 /* Frameworks */,
-				4E00820D1B1019BE00BA2613 /* Otto */,
+				4E00820D1B1019BE00BA2613 /* busybee */,
 				4E0082271B1019BE00BA2613 /* OttoTests */,
 				4E00820C1B1019BE00BA2613 /* Products */,
 			);
@@ -150,13 +149,13 @@
 		4E00820C1B1019BE00BA2613 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E00820B1B1019BE00BA2613 /* ottoinsurance.app */,
+				4E00820B1B1019BE00BA2613 /* busybee.app */,
 				4E0082241B1019BE00BA2613 /* OttoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4E00820D1B1019BE00BA2613 /* Otto */ = {
+		4E00820D1B1019BE00BA2613 /* busybee */ = {
 			isa = PBXGroup;
 			children = (
 				4E00826B1B113ECB00BA2613 /* Controller */,
@@ -165,6 +164,7 @@
 				4E00821B1B1019BE00BA2613 /* Images.xcassets */,
 				4E00820E1B1019BE00BA2613 /* Supporting Files */,
 			);
+			name = busybee;
 			path = Otto;
 			sourceTree = "<group>";
 		};
@@ -201,6 +201,8 @@
 				4EFC18E61B1A46E300F26155 /* AppUtils.m */,
 				4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */,
 				4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */,
+				4EB0B87B1B1E3A83008FFF3D /* ActivityCell.h */,
+				4EB0B87C1B1E3AFB008FFF3D /* ActivityCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -211,6 +213,7 @@
 				4E0082181B1019BE00BA2613 /* Main.storyboard */,
 				4E00821D1B1019BE00BA2613 /* LaunchScreen.xib */,
 				4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */,
+				4EB0B8791B1E3A41008FFF3D /* ActivityCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -222,14 +225,10 @@
 				4E0082131B1019BE00BA2613 /* AppDelegate.m */,
 				4E0082151B1019BE00BA2613 /* ViewController.h */,
 				4E0082161B1019BE00BA2613 /* ViewController.m */,
-				4E0082661B113E7C00BA2613 /* MenuTableViewController.h */,
-				4E0082671B113E7C00BA2613 /* MenuTableViewController.m */,
 				4E00826D1B11669500BA2613 /* StartStopViewController.h */,
 				4E00826E1B11669500BA2613 /* StartStopViewController.m */,
 				4ED23A861B157A9B00552CD2 /* ActivityLogViewController.h */,
 				4ED23A871B157A9B00552CD2 /* ActivityLogViewController.m */,
-				4ED23A8E1B1586F700552CD2 /* AlertViewController.h */,
-				4ED23A8F1B1586F700552CD2 /* AlertViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -263,9 +262,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E00820A1B1019BE00BA2613 /* ottoinsurance */ = {
+		4E00820A1B1019BE00BA2613 /* busybee */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E00822E1B1019BE00BA2613 /* Build configuration list for PBXNativeTarget "ottoinsurance" */;
+			buildConfigurationList = 4E00822E1B1019BE00BA2613 /* Build configuration list for PBXNativeTarget "busybee" */;
 			buildPhases = (
 				4E0082071B1019BE00BA2613 /* Sources */,
 				4E0082081B1019BE00BA2613 /* Frameworks */,
@@ -275,9 +274,9 @@
 			);
 			dependencies = (
 			);
-			name = ottoinsurance;
+			name = busybee;
 			productName = Otto;
-			productReference = 4E00820B1B1019BE00BA2613 /* ottoinsurance.app */;
+			productReference = 4E00820B1B1019BE00BA2613 /* busybee.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4E0082231B1019BE00BA2613 /* OttoTests */ = {
@@ -317,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4E0082061B1019BE00BA2613 /* Build configuration list for PBXProject "ottoinsurance" */;
+			buildConfigurationList = 4E0082061B1019BE00BA2613 /* Build configuration list for PBXProject "busybee" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -330,7 +329,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E00820A1B1019BE00BA2613 /* ottoinsurance */,
+				4E00820A1B1019BE00BA2613 /* busybee */,
 				4E0082231B1019BE00BA2613 /* OttoTests */,
 			);
 		};
@@ -344,6 +343,7 @@
 				4E00821A1B1019BE00BA2613 /* Main.storyboard in Resources */,
 				4E00821F1B1019BE00BA2613 /* LaunchScreen.xib in Resources */,
 				4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */,
+				4EB0B87A1B1E3A41008FFF3D /* ActivityCell.xib in Resources */,
 				4E00821C1B1019BE00BA2613 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,13 +364,12 @@
 			files = (
 				4E0082171B1019BE00BA2613 /* ViewController.m in Sources */,
 				4E0082141B1019BE00BA2613 /* AppDelegate.m in Sources */,
-				4ED23A901B1586F700552CD2 /* AlertViewController.m in Sources */,
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,
 				4E0082111B1019BE00BA2613 /* main.m in Sources */,
 				4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */,
 				4EFC18E71B1A46E300F26155 /* AppUtils.m in Sources */,
+				4EB0B87D1B1E3AFB008FFF3D /* ActivityCell.m in Sources */,
 				4ED23A881B157A9B00552CD2 /* ActivityLogViewController.m in Sources */,
-				4E0082681B113E7C00BA2613 /* MenuTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +386,7 @@
 /* Begin PBXTargetDependency section */
 		4E0082261B1019BE00BA2613 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4E00820A1B1019BE00BA2613 /* ottoinsurance */;
+			target = 4E00820A1B1019BE00BA2613 /* busybee */;
 			targetProxy = 4E0082251B1019BE00BA2613 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -563,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E0082061B1019BE00BA2613 /* Build configuration list for PBXProject "ottoinsurance" */ = {
+		4E0082061B1019BE00BA2613 /* Build configuration list for PBXProject "busybee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E00822C1B1019BE00BA2613 /* Debug */,
@@ -572,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E00822E1B1019BE00BA2613 /* Build configuration list for PBXNativeTarget "ottoinsurance" */ = {
+		4E00822E1B1019BE00BA2613 /* Build configuration list for PBXNativeTarget "busybee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E00822F1B1019BE00BA2613 /* Debug */,

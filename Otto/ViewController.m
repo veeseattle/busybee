@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ActivityCell.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *ottobiglabel;
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *ottoImageView;
 
 @end
@@ -19,28 +21,29 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
-  self.navigationItem.titleView = titleView;
+//  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybeetitleview.png"]];
+//  self.navigationItem.titleView = titleView;
   
-  self.ottobiglabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Light" size:35.0];
+  self.ottoImageView.image = [UIImage imageNamed:@"busy bee-logo-white.png"];
+  self.ottoImageView.contentMode = UIViewContentModeScaleAspectFill;
+  self.ottoImageView.backgroundColor = [UIColor blackColor];
+  self.ottoImageView.layer.cornerRadius = 50;
+  self.ottoImageView.clipsToBounds = true;
   
- NSArray *imageNames = @[@"OttoIsRunning.png", @"OttoIsRunning2.png", @"OttoIsRunning3.png", @"OttoIsRunning4.png"];
-  
-  NSMutableArray *images = [[NSMutableArray alloc] init];
-  for (int i = 0; i < imageNames.count; i++) {
-    [images addObject:[UIImage imageNamed:[imageNames objectAtIndex:i]]];
-  }
-  
-  self.ottoImageView.animationImages = images;
-  self.ottoImageView.animationDuration = 3.0;
-  
-  [self.ottoImageView startAnimating];
-  
+  UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
+  self.tableView.rowHeight = 55;
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ACTIVITY_CELL" forIndexPath:indexPath];
+  return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return 5;
 }
 
 @end

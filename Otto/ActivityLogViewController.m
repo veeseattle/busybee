@@ -38,8 +38,9 @@
   UINib *nib = [UINib nibWithNibName:@"LogTableViewCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"LOG_CELL"];
   
-  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ottotitleview.png"]];
-  self.navigationItem.titleView = titleView;
+//  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybeetitleview.png"]];
+//  titleView.contentMode = UIViewContentModeScaleAspectFill;
+//  self.navigationItem.titleView = titleView;
   
   //create drop shadow under the custom top view
   UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRect:self.customTopView.bounds];
