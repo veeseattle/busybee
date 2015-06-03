@@ -3,55 +3,55 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "ottoicon29x29.png",
+      "filename" : "icon29x29.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "ottoicon58x58.png",
+      "filename" : "icon58x58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "ottoicon87x87.png",
+      "filename" : "icon87x87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "ottoicon80x80.png",
+      "filename" : "icon80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "ottoicon120x120.png",
+      "filename" : "icon120-1.png",
       "scale" : "3x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "ottoicon57x57.png",
+      "filename" : "icon57.png",
       "scale" : "1x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "ottoicon114x114.png",
+      "filename" : "icon114x114.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "ottoicon120x120-1.png",
+      "filename" : "icon120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "ottoicon180x180.png",
+      "filename" : "icon180x180.png",
       "scale" : "3x"
     },
     {
