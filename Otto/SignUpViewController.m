@@ -19,8 +19,10 @@
   
   [self.signUpView setBackgroundColor:[UIColor colorWithRed:96/255.0 green:227/255.0 blue:212/255.0 alpha:1.0]];
   
-  //just to cover up Parse logo
-  [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybee.png"]]];
+  UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375, 135)];
+  logoView.image = [UIImage imageNamed:@"busybeelogo.png"];
+  logoView.contentMode = UIViewContentModeScaleAspectFill;
+  [self.signUpView setLogo:logoView];
   
   UIImageView *fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"simple_bg.jpeg"]];
   fieldsBackground.contentMode = UIViewContentModeScaleAspectFill;
@@ -38,8 +40,6 @@
   float yOffset = 0;
   
   CGRect fieldFrame = self.signUpView.usernameField.frame;
-  
-  [self.signUpView.logo setFrame:CGRectMake(66.5f, 70.0f, 250.0f, 80.5f)];
   
   [self.signUpView.usernameField setFrame:CGRectMake(fieldFrame.origin.x + 5.0f,
                                                      fieldFrame.origin.y + yOffset,

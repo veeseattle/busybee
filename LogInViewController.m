@@ -19,7 +19,10 @@
   
   [self.logInView setBackgroundColor:[UIColor colorWithRed:96/255.0 green:227/255.0 blue:212/255.0 alpha:1.0]];
   
-  [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybee.png"]]];
+  UIImageView *logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 375, 135)];
+  logoView.image = [UIImage imageNamed:@"busybeelogo.png"];
+  logoView.contentMode = UIViewContentModeScaleAspectFill;
+  [self.logInView setLogo:logoView];
   
   UIImageView *fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"simple_bg.jpeg"]];
   fieldsBackground.contentMode = UIViewContentModeScaleAspectFill;
