@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface StartStopViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *lapsedTimeLabel;
+@property (strong, nonatomic) PFObject *activity;
 
 
 @end

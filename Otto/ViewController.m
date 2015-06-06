@@ -9,8 +9,10 @@
 #import "ViewController.h"
 #import "ActivityCell.h"
 #import "AppUtils.h"
+#import "StartStopViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
@@ -19,6 +21,7 @@
 @property (strong, nonatomic) UIImage *userProfilePicture;
 @property (weak, nonatomic) IBOutlet UIButton *addActivityButton;
 @property (weak, nonatomic) IBOutlet UITextField *activityNameTextField;
+@property (strong, nonatomic) NSString *myName;
 
 @property (strong, nonatomic) NSArray *dataArray;
 
@@ -54,9 +57,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  //  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybeetitleview.png"]];
-  //  self.navigationItem.titleView = titleView;
-  
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
   self.tableView.delegate = self;
@@ -83,6 +83,32 @@
   self.addActivityButton.layer.cornerRadius = 5;
   self.addActivityButton.clipsToBounds = true;
   [self.addActivityButton addTarget:self action:@selector(addButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+  
+}
+
+- (void)loadUserLoginData {
+  
+  FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
+  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+    if (!error) {
+      // result is a dictionary with the user's Facebook data
+      NSDictionary *userData = (NSDictionary *)result;
+      
+      NSString *facebookID = userData[@"id"]; //used for picture
+      NSString *name = userData[@"name"];
+      NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+      NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+      [NSURLConnection sendAsynchronousRequest:urlRequest
+                                         queue:[NSOperationQueue mainQueue]
+                             completionHandler:
+       ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+         if (connectionError == nil && data != nil) {
+           UIImage *userPhoto = [UIImage imageWithData:data];
+           [self.profilePicture setBackgroundImage:userPhoto forState:UIControlStateNormal];
+         }
+       }];
+    }
+  }];
   
 }
 
@@ -190,6 +216,18 @@
   return self.dataArray.count;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:indexPath];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)sender {
+  if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
+    StartStopViewController *destinationVC = (StartStopViewController *)segue.destinationViewController;
+    PFObject *object = self.dataArray[sender.row];
+    destinationVC.activity = object;
+  }
+}
+
 #pragma mark - PFSignUpViewControllerDelegate
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
   BOOL informationComplete = YES;
@@ -240,7 +278,7 @@
   [self dismissViewControllerAnimated:true completion:nil];
 }
 
-#pragma mark - new alert 
+#pragma mark - new alert
 //basic function to create new alert with OK button
 - (void)createNewAlert:(NSString *)title withMessage:(NSString *)message {
   UIAlertController *alertView = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];

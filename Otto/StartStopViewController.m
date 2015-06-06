@@ -20,8 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIView *customTopView;
 @property (weak, nonatomic) IBOutlet UILabel *topViewStatLabel;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *stopwatchButton;
+@property (weak, nonatomic) IBOutlet UILabel *activityName;
 
 @end
 
@@ -36,13 +36,11 @@
   self.stopwatchButton.layer.borderWidth = 3;
   [self.stopwatchButton addTarget:self action:@selector(stopwatchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   
-//  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybeetitleview.png"]];
-//  self.navigationItem.titleView = titleView;
-  
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:14.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
   
   [self getDataForTopView];
-
+  NSString *name = self.activity[@"name"];
+  self.activityName.text = [NSString stringWithFormat:@"Now tracking:  %@", name];
   [self.refreshButton addTarget:self action:@selector(getDataForTopView) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -93,7 +91,7 @@
     elapsed -= mins * 60;
     int secs = (int) elapsed;
     
-    self.lapsedTimeLabel.text = [NSString stringWithFormat:@"Current trip: %u:%u:%02u", hours, mins, secs];
+    self.lapsedTimeLabel.text = [NSString stringWithFormat:@"Current activity: %u:%u:%02u", hours, mins, secs];
     
     [self performSelector:@selector(addTime) withObject:self afterDelay:0.1];
   }
