@@ -15,17 +15,17 @@
 @implementation LogInViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
   
-  [self.logInView setBackgroundColor:[UIColor colorWithRed:87/255.0 green:205/255.0 blue:192/255.0 alpha:1.0]];
+  [self.logInView setBackgroundColor:[UIColor colorWithRed:96/255.0 green:227/255.0 blue:212/255.0 alpha:1.0]];
   
-  [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busylogo.png"]]];
+  [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybee.png"]]];
   
-    UIImageView *fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busy bee.png"]];
-    fieldsBackground.contentMode = UIViewContentModeTop;
-    fieldsBackground.frame = [UIScreen mainScreen].bounds;
-    fieldsBackground.alpha = 0.8;
-    [self.logInView insertSubview:fieldsBackground atIndex:0];
+  UIImageView *fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"simple_bg.jpeg"]];
+  fieldsBackground.contentMode = UIViewContentModeScaleAspectFill;
+  fieldsBackground.frame = [UIScreen mainScreen].bounds;
+  fieldsBackground.alpha = 0.5;
+  [self.logInView insertSubview:fieldsBackground atIndex:0];
   
 }
 

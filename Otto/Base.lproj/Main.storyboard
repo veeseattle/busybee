@@ -86,7 +86,7 @@
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bh-hP-78z">
                                         <rect key="frame" x="-16" y="0.0" width="200" height="8"/>
-                                        <color key="backgroundColor" red="0.3411764706" green="0.80392156859999997" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.37670775610000001" green="0.89021070079999998" blue="0.83230318920000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="8" id="ceZ-jn-COV"/>
                                             <constraint firstAttribute="width" constant="200" id="obg-TA-lcf"/>

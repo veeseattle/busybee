@@ -17,15 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
-  [self.signUpView setBackgroundColor:[UIColor colorWithRed:87/255.0 green:205/255.0 blue:192/255.0 alpha:1.0]];
+  [self.signUpView setBackgroundColor:[UIColor colorWithRed:96/255.0 green:227/255.0 blue:212/255.0 alpha:1.0]];
   
   //just to cover up Parse logo
-  [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busylogo.png"]]];
+  [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybee.png"]]];
   
-  UIImageView *fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beelogo.jpeg"]];
+  UIImageView *fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"simple_bg.jpeg"]];
   fieldsBackground.contentMode = UIViewContentModeScaleAspectFill;
   fieldsBackground.frame = [UIScreen mainScreen].bounds;
-  fieldsBackground.alpha = 0.8;
+  fieldsBackground.alpha = 0.5;
   [self.signUpView insertSubview:fieldsBackground atIndex:0];
   
 }
@@ -34,7 +34,8 @@
   [super viewDidLayoutSubviews];
   
   // Move all fields down on smaller screen sizes
-  float yOffset = [UIScreen mainScreen].bounds.size.height <= 480.0f ? 30.0f : 0.0f;
+  //float yOffset = [UIScreen mainScreen].bounds.size.height <= 480.0f ? 30.0f : 0.0f;
+  float yOffset = 0;
   
   CGRect fieldFrame = self.signUpView.usernameField.frame;
   
