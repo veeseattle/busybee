@@ -29,6 +29,11 @@
 		4EC4C02A1B228BED00560F25 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4C01B1B228BED00560F25 /* IQToolbar.m */; };
 		4EC4C02B1B228BED00560F25 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4C01D1B228BED00560F25 /* IQUIView+IQKeyboardToolbar.m */; };
 		4EC4C02C1B228BED00560F25 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4EC4C0201B228BED00560F25 /* IQKeyboardManager.bundle */; };
+		4EC4C02E1B22C5D800560F25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C02D1B22C5D800560F25 /* Foundation.framework */; };
+		4EC4C0301B22C5E500560F25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C02F1B22C5E500560F25 /* UIKit.framework */; };
+		4EC4C0321B22C5FA00560F25 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C0311B22C5FA00560F25 /* FBSDKCoreKit.framework */; };
+		4EC4C0341B22C5FD00560F25 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C0331B22C5FD00560F25 /* FBSDKLoginKit.framework */; };
+		4EC4C0361B22C60000560F25 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C0351B22C60000560F25 /* FBSDKShareKit.framework */; };
 		4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */; };
 		4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */; };
 		4EFC18BF1B195A8400F26155 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18BE1B195A8400F26155 /* AudioToolbox.framework */; };
@@ -108,6 +113,11 @@
 		4EC4C01D1B228BED00560F25 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		4EC4C01E1B228BED00560F25 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		4EC4C0201B228BED00560F25 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		4EC4C02D1B22C5D800560F25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4EC4C02F1B22C5E500560F25 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4EC4C0311B22C5FA00560F25 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4EC4C0331B22C5FD00560F25 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4EC4C0351B22C60000560F25 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableViewCell.h; sourceTree = "<group>"; };
 		4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewCell.m; sourceTree = "<group>"; };
 		4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
@@ -139,6 +149,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC4C0301B22C5E500560F25 /* UIKit.framework in Frameworks */,
+				4EC4C02E1B22C5D800560F25 /* Foundation.framework in Frameworks */,
 				4EFC18D71B195ACD00F26155 /* Social.framework in Frameworks */,
 				4EFC18D51B195AC700F26155 /* Accounts.framework in Frameworks */,
 				4EFC18D31B195AC200F26155 /* libsqlite3.dylib in Frameworks */,
@@ -148,6 +160,9 @@
 				4EFC18CF1B195AB600F26155 /* SystemConfiguration.framework in Frameworks */,
 				4EFC18CD1B195AAF00F26155 /* StoreKit.framework in Frameworks */,
 				4EFC18CB1B195AA900F26155 /* Security.framework in Frameworks */,
+				4EC4C0361B22C60000560F25 /* FBSDKShareKit.framework in Frameworks */,
+				4EC4C0321B22C5FA00560F25 /* FBSDKCoreKit.framework in Frameworks */,
+				4EC4C0341B22C5FD00560F25 /* FBSDKLoginKit.framework in Frameworks */,
 				4EFC18C91B195AA300F26155 /* QuartzCore.framework in Frameworks */,
 				4EFC18E41B195AF200F26155 /* ParseUI.framework in Frameworks */,
 				4EFC18C71B195A9D00F26155 /* MobileCoreServices.framework in Frameworks */,
@@ -350,6 +365,11 @@
 		4EFC18D81B195AD600F26155 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4EC4C0351B22C60000560F25 /* FBSDKShareKit.framework */,
+				4EC4C0331B22C5FD00560F25 /* FBSDKLoginKit.framework */,
+				4EC4C0311B22C5FA00560F25 /* FBSDKCoreKit.framework */,
+				4EC4C02F1B22C5E500560F25 /* UIKit.framework */,
+				4EC4C02D1B22C5D800560F25 /* Foundation.framework */,
 				4EFC18D91B195AF200F26155 /* Bolts.framework */,
 				4EFC18DA1B195AF200F26155 /* Parse.framework */,
 				4EFC18DB1B195AF200F26155 /* ParseCrashReporting.framework */,
@@ -626,6 +646,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/koala/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Otto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -643,6 +664,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/koala/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = Otto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -11,11 +11,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="busy bee-logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="EFb-vt-3sr">
-                    <rect key="frame" x="140" y="75" width="200" height="100"/>
+                    <rect key="frame" x="115" y="100" width="250" height="120"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="1Yl-G6-sdX"/>
+                        <constraint firstAttribute="width" constant="250" id="1Yl-G6-sdX"/>
                         <constraint firstAttribute="height" constant="120" id="7yi-cq-Iaj"/>
-                        <constraint firstAttribute="height" constant="100" id="Kd9-cD-izT"/>
+                        <constraint firstAttribute="height" constant="120" id="Kd9-cD-izT"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -39,7 +39,7 @@
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
                 <constraint firstAttribute="centerY" secondItem="EFb-vt-3sr" secondAttribute="centerY" id="j2o-Bz-csu"/>
                 <constraint firstAttribute="centerX" secondItem="EFb-vt-3sr" secondAttribute="centerX" id="kNf-Qd-HrN"/>
-                <constraint firstItem="EFb-vt-3sr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="mdW-pS-B6a"/>
+                <constraint firstItem="EFb-vt-3sr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="mdW-pS-B6a"/>
                 <constraint firstAttribute="centerX" secondItem="EFb-vt-3sr" secondAttribute="centerX" id="z8o-uy-yBm"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -56,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="busy bee-logo-white" width="2000" height="1322"/>
+        <image name="busy bee-logo-white" width="1000" height="661"/>
     </resources>
 </document>

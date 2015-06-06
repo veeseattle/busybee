@@ -13,7 +13,7 @@
 			</array>
 		</dict>
 	</array>
-	<key>FacebookAppId</key>
+	<key>FacebookAppID</key>
 	<string>811396312290002</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

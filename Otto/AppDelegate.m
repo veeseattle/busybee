@@ -41,7 +41,12 @@
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Light" size:13.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
  
  [self.window setRootViewController:rootController];
-  return YES;
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                  didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+  [FBSDKAppEvents activateApp];
 }
 
 //for login purposes
@@ -54,10 +59,5 @@
                                               sourceApplication:sourceApplication
                                                      annotation:annotation];
 }
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-  [FBSDKAppEvents activateApp];
-}
-
 
 @end
