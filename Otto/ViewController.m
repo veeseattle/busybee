@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
@@ -52,6 +53,9 @@
     [self presentViewController:self.logInViewController animated:YES completion:nil];
   }
   
+  FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+  loginButton.center = self.view.center;
+  [self.view addSubview:loginButton];
 }
 
 - (void)viewDidLoad {

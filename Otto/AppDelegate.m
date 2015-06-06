@@ -44,6 +44,7 @@
   return YES;
 }
 
+//for login purposes
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
