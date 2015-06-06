@@ -10,6 +10,8 @@
 #import "ActivityCell.h"
 #import "AppUtils.h"
 #import "StartStopViewController.h"
+#import "LogInViewController.h"
+#import "SignUpViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -26,7 +28,7 @@
 
 @property (strong, nonatomic) NSArray *dataArray;
 
-@property (strong, nonatomic) PFLogInViewController *logInViewController;
+@property (strong, nonatomic) LogInViewController *logInViewController;
 
 @end
 
@@ -39,11 +41,11 @@
   
   if (![PFUser currentUser])
   {
-    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+    SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
     signUpViewController.delegate = self;
     signUpViewController.fields = PFSignUpFieldsDefault;
     
-    self.logInViewController = [[PFLogInViewController alloc] init];
+    self.logInViewController = [[LogInViewController alloc] init];
     self.logInViewController.fields = (PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten | PFLogInFieldsFacebook);
     self.logInViewController.delegate = self;
     self.logInViewController.facebookPermissions = @[@"public_profile"];
@@ -52,10 +54,6 @@
     
     [self presentViewController:self.logInViewController animated:YES completion:nil];
   }
-  
-  FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-  loginButton.center = self.view.center;
-  [self.view addSubview:loginButton];
 }
 
 - (void)viewDidLoad {

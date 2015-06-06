@@ -34,6 +34,8 @@
 		4EC4C0321B22C5FA00560F25 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C0311B22C5FA00560F25 /* FBSDKCoreKit.framework */; };
 		4EC4C0341B22C5FD00560F25 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C0331B22C5FD00560F25 /* FBSDKLoginKit.framework */; };
 		4EC4C0361B22C60000560F25 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC4C0351B22C60000560F25 /* FBSDKShareKit.framework */; };
+		4EC4C0391B22C75C00560F25 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4C0381B22C75C00560F25 /* SignUpViewController.m */; };
+		4EC4C03F1B22C77F00560F25 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC4C03E1B22C77F00560F25 /* LogInViewController.m */; };
 		4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */; };
 		4ED23A8D1B157B7D00552CD2 /* LogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */; };
 		4EFC18BF1B195A8400F26155 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFC18BE1B195A8400F26155 /* AudioToolbox.framework */; };
@@ -118,6 +120,10 @@
 		4EC4C0311B22C5FA00560F25 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		4EC4C0331B22C5FD00560F25 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		4EC4C0351B22C60000560F25 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		4EC4C0371B22C75C00560F25 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		4EC4C0381B22C75C00560F25 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		4EC4C03D1B22C77F00560F25 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogInViewController.h; path = ../LogInViewController.h; sourceTree = "<group>"; };
+		4EC4C03E1B22C77F00560F25 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogInViewController.m; path = ../LogInViewController.m; sourceTree = "<group>"; };
 		4ED23A891B157B7D00552CD2 /* LogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableViewCell.h; sourceTree = "<group>"; };
 		4ED23A8A1B157B7D00552CD2 /* LogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableViewCell.m; sourceTree = "<group>"; };
 		4ED23A8B1B157B7D00552CD2 /* LogTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogTableViewCell.xib; sourceTree = "<group>"; };
@@ -277,6 +283,10 @@
 				4E0082161B1019BE00BA2613 /* ViewController.m */,
 				4E00826D1B11669500BA2613 /* StartStopViewController.h */,
 				4E00826E1B11669500BA2613 /* StartStopViewController.m */,
+				4EC4C03D1B22C77F00560F25 /* LogInViewController.h */,
+				4EC4C03E1B22C77F00560F25 /* LogInViewController.m */,
+				4EC4C0371B22C75C00560F25 /* SignUpViewController.h */,
+				4EC4C0381B22C75C00560F25 /* SignUpViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -502,6 +512,7 @@
 				4E0082171B1019BE00BA2613 /* ViewController.m in Sources */,
 				4E0082141B1019BE00BA2613 /* AppDelegate.m in Sources */,
 				4ED23A8C1B157B7D00552CD2 /* LogTableViewCell.m in Sources */,
+				4EC4C0391B22C75C00560F25 /* SignUpViewController.m in Sources */,
 				4EC4C0261B228BED00560F25 /* IQSegmentedNextPrevious.m in Sources */,
 				4EC4C02A1B228BED00560F25 /* IQToolbar.m in Sources */,
 				4EC4C0231B228BED00560F25 /* IQUIWindow+Hierarchy.m in Sources */,
@@ -509,6 +520,7 @@
 				4E0082111B1019BE00BA2613 /* main.m in Sources */,
 				4EC4C0221B228BED00560F25 /* IQUIView+Hierarchy.m in Sources */,
 				4EC4C0251B228BED00560F25 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				4EC4C03F1B22C77F00560F25 /* LogInViewController.m in Sources */,
 				4E00826F1B11669500BA2613 /* StartStopViewController.m in Sources */,
 				4EC4C0291B228BED00560F25 /* IQTitleBarButtonItem.m in Sources */,
 				4EFC18E71B1A46E300F26155 /* AppUtils.m in Sources */,
