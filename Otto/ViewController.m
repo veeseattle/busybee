@@ -17,7 +17,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *profilePicture;
@@ -36,7 +36,6 @@
 -(void)viewDidAppear:(BOOL)animated {
   
   [super viewDidAppear:true];
-  [self refreshDataInTable];
   
   if (![PFUser currentUser])
   {
@@ -49,7 +48,12 @@
     self.logInViewController.delegate = self;
     self.logInViewController.facebookPermissions = @[@"public_profile"];
     self.logInViewController.signUpController = signUpViewController;
+    
     [self presentViewController:self.logInViewController animated:YES completion:nil];
+  }
+  
+  if ([PFUser currentUser]) {
+    [self refreshDataInTable];
   }
   
 }
@@ -58,7 +62,7 @@
   
   [super viewDidLoad];
   
-  [self getUserData];
+  //[self getUserData];
   
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
@@ -242,7 +246,7 @@
       [self refreshDataInTable];
     });
   }];
-
+  
 }
 
 - (void)addButtonClicked:(id)sender {

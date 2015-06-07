@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppUtils.h"
+#import "ViewController.h"
 #import <Parse/Parse.h>
 #import "FBSDKCoreKit/FBSDKCoreKit.h"
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
@@ -27,6 +28,10 @@
   
   // Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+  
+  UINavigationController *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"NAV_VC"];
+  [self.window setRootViewController:rootController];
+  [self.window makeKeyAndVisible];
   
   // Customize navigation bar appearance
   [[UINavigationBar appearance] setTranslucent:false];
