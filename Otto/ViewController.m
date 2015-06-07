@@ -117,9 +117,7 @@
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-  
   [picker dismissViewControllerAnimated:YES completion:NULL];
-  
 }
 
 #pragma mark - segue
@@ -134,7 +132,21 @@
 }
 
 #pragma mark - parse commands
-- (void)fetchUserData {
+- (void)getUserData {
+  
+  if ([PFUser currentUser]) {
+    [self refreshDataInTable];
+    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    if (isLinkedToFacebook) {
+      [self fetchUserDataInFacebook];
+    }
+    else {
+      [self fetchUserDataInParse];
+    }
+  }
+}
+
+- (void)fetchUserDataInParse {
   
   PFUser *user = [PFUser currentUser];
   NSData *profilePictureData = user[@"image"];
@@ -144,22 +156,8 @@
   
 }
 
-- (void)getUserData {
+- (void)fetchUserDataInFacebook {
   
-  if ([PFUser currentUser]) {
-    [self refreshDataInTable];
-    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
-    if (isLinkedToFacebook) {
-      [self loadFacebookData];
-    }
-    else {
-      [self fetchUserData];
-    }
-  }
-  
-}
-
-- (void)loadFacebookData {
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
   [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
     if (!error) {
@@ -186,32 +184,69 @@
 }
 
 - (void)refreshDataInTable {
+  
   [AppUtils fetchData:^(NSArray *objects) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.dataArray = objects;
       [self.tableView reloadData];
     });
   }];
+  
 }
 
 - (void)uploadUserImage:(NSData *)imageData {
+  
   PFUser *user = [PFUser currentUser];
   user[@"image"] = imageData;
   [user saveInBackground];
+  
 }
 
-- (void)deleteActivity:(NSString *)objectId {
+- (void)deleteButtonPushed:(PFObject *)activity {
+  UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"Confirm Delete?" message:@"Are you sure you want to delete this activity? This action cannot be undone." preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"No, cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [self dismissViewControllerAnimated:true completion:nil];
+  }];
+  UIAlertAction *deleteButton = [UIAlertAction actionWithTitle:@"Yes, delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    [self deleteActivity:activity];
+  }];
+  
+  [alertView addAction:cancelButton];
+  [alertView addAction:deleteButton];
+  [self presentViewController:alertView animated:true completion:nil];
+  
+}
+
+- (void)deleteActivity:(PFObject *)activity {
+  
+  //delete sessions within this activity
+  PFQuery *sessionQuery = [PFQuery queryWithClassName:@"Session"];
+  [sessionQuery whereKey:@"activityPointer" equalTo:activity];
+  [sessionQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+    if (!error) {
+      for (PFObject *item in array) {
+        [item deleteInBackground];
+      }
+      NSLog(@"deleted %lu", (unsigned long)array.count);
+    }
+    else {
+      NSLog(@"could not retrieve sessions");
+    }
+  }];
+  
+  //then delete the activity
   PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
-  [activityQuery whereKey:@"owner" equalTo:objectId];
-  [activityQuery getObjectInBackgroundWithId:objectId block:^(PFObject *activity, NSError *error){
+  [activityQuery getObjectInBackgroundWithId:activity.objectId block:^(PFObject *activity, NSError *error){
     [activity deleteInBackground];
     dispatch_async(dispatch_get_main_queue(), ^{
       [self refreshDataInTable];
     });
   }];
+
 }
 
 - (void)addButtonClicked:(id)sender {
+  
   NSString *activityName = self.activityNameTextField.text;
   [self.activityNameTextField resignFirstResponder];
   self.activityNameTextField.text = nil;
@@ -229,6 +264,7 @@
       // There was a problem, check error.description
     }
   }];
+  
 }
 
 
@@ -245,23 +281,19 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  
   return self.dataArray.count;
-  
 }
 
 #pragma mark - UITableView Delegate methods
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  
   [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:indexPath];
-  
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
   
   if (editingStyle == UITableViewCellEditingStyleDelete) {
-    NSString *objectId = [self.dataArray[indexPath.row] objectId];
-    [self deleteActivity:objectId];
+    PFObject *activity = self.dataArray[indexPath.row];
+    [self deleteButtonPushed:activity];
   }
   
 }
@@ -290,9 +322,7 @@
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-  
   [self dismissViewControllerAnimated:true completion:nil];
-  
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
@@ -305,21 +335,16 @@
 
 #pragma mark - PFLoginViewControllerDelegate
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-  
   [self getUserData];
   [self dismissViewControllerAnimated:true completion:nil];
-  
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-  
   [self createNewAlert:@"Error Logging in" withMessage:@"There was an error logging in, please try again later."];
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-  
   [self dismissViewControllerAnimated:true completion:nil];
-  
 }
 
 #pragma mark - new alert
