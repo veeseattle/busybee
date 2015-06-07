@@ -7,20 +7,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ACTIVITY_CELL" rowHeight="55" id="KGk-i7-Jjw" customClass="ActivityCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ACTIVITY_CELL" rowHeight="50" id="KGk-i7-Jjw" customClass="ActivityCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="activity" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z56-DL-fBt" userLabel="activity">
-                        <rect key="frame" x="16" y="18" width="160" height="21"/>
+                        <rect key="frame" x="16" y="16" width="160" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuf-mE-rZ4" userLabel="totalTime">
-                        <rect key="frame" x="184" y="18" width="120" height="21"/>
+                        <rect key="frame" x="184" y="16" width="120" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="BY9-I0-79Q"/>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="YO8-OX-6of"/>
@@ -40,12 +40,16 @@
                     <constraint firstAttribute="centerY" secondItem="nuf-mE-rZ4" secondAttribute="centerY" id="PnH-rE-wym"/>
                     <constraint firstAttribute="trailingMargin" secondItem="z56-DL-fBt" secondAttribute="trailing" constant="8" id="bBd-PN-Ynt"/>
                     <constraint firstItem="z56-DL-fBt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="fJ8-do-jdT"/>
+                    <constraint firstItem="z56-DL-fBt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="fNA-zZ-tiD"/>
                     <constraint firstItem="nuf-mE-rZ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="nuW-29-21V"/>
                     <constraint firstAttribute="trailingMargin" secondItem="nuf-mE-rZ4" secondAttribute="trailing" constant="8" id="qwm-Be-Z5r"/>
+                    <constraint firstItem="z56-DL-fBt" firstAttribute="centerY" secondItem="nuf-mE-rZ4" secondAttribute="centerY" id="xwu-gJ-g1O"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="BOd-Y0-iH2"/>
                         <exclude reference="bBd-PN-Ynt"/>
+                        <exclude reference="PnH-rE-wym"/>
                         <exclude reference="nuW-29-21V"/>
                     </mask>
                 </variation>
@@ -54,7 +58,7 @@
                 <outlet property="activityLabel" destination="z56-DL-fBt" id="7Zr-36-q9A"/>
                 <outlet property="totalTimeLabel" destination="nuf-mE-rZ4" id="Mts-pE-VRo"/>
             </connections>
-            <point key="canvasLocation" x="244" y="305"/>
+            <point key="canvasLocation" x="244" y="302.5"/>
         </tableViewCell>
     </objects>
 </document>

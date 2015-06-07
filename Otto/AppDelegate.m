@@ -36,14 +36,7 @@
   // Customize default font for labels
   [[UILabel appearance] setFont:[UIFont fontWithName:@"Helvetica-Light" size:15.0]];
   
-  UITabBarController *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"TAB_BAR"];
-  
-  // Customize default tab bar item appearance
-  [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Light" size:13.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
-  
   [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:nil];
-  
-  [self.window setRootViewController:rootController];
   return [[FBSDKApplicationDelegate sharedInstance] application:application
                                   didFinishLaunchingWithOptions:launchOptions];
 }

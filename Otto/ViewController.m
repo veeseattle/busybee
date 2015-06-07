@@ -26,19 +26,17 @@
 @property (weak, nonatomic) IBOutlet UITextField *activityNameTextField;
 @property (strong, nonatomic) NSString *myName;
 @property (weak, nonatomic) IBOutlet UILabel *greetingLabel;
-
 @property (strong, nonatomic) NSArray *dataArray;
-
 @property (strong, nonatomic) LogInViewController *logInViewController;
 
 @end
 
 @implementation ViewController
 
-
 -(void)viewDidAppear:(BOOL)animated {
   
   [super viewDidAppear:true];
+  [self refreshDataInTable];
   
   if (![PFUser currentUser])
   {
@@ -50,24 +48,23 @@
     self.logInViewController.fields = (PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten | PFLogInFieldsFacebook);
     self.logInViewController.delegate = self;
     self.logInViewController.facebookPermissions = @[@"public_profile"];
-    
     self.logInViewController.signUpController = signUpViewController;
-    
     [self presentViewController:self.logInViewController animated:YES completion:nil];
   }
-
+  
 }
 
 - (void)viewDidLoad {
+  
   [super viewDidLoad];
-
+  
   [self getUserData];
   
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
-  self.tableView.rowHeight = 55;
+  self.tableView.rowHeight = 50;
   
   if (!self.userProfilePicture) {
     [self.profilePicture setBackgroundImage:[UIImage imageNamed:@"cameraIcon.png"] forState:UIControlStateNormal];
@@ -87,66 +84,16 @@
   
 }
 
-- (void)getUserData {
-  if ([PFUser currentUser]) {
-    [self getData];
-    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
-    if (isLinkedToFacebook) {
-      [self loadFacebookData];
-    }
-    else {
-      [self fetchUserData];
-    }
-  }
-}
-
-- (void)loadFacebookData {
-  FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
-  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-    if (!error) {
-      // result is a dictionary with the user's Facebook data
-      NSDictionary *userData = (NSDictionary *)result;
-      
-      NSString *facebookID = userData[@"id"]; //used for picture
-      self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", userData[@"first_name"]];
-      self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
-      NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-      NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
-      [NSURLConnection sendAsynchronousRequest:urlRequest
-                                         queue:[NSOperationQueue mainQueue]
-                             completionHandler:
-       ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-         if (connectionError == nil && data != nil) {
-           UIImage *userPhoto = [UIImage imageWithData:data];
-           [self.profilePicture setBackgroundImage:userPhoto forState:UIControlStateNormal];
-         }
-       }];
-    }
-  }];
-  
-}
-
-- (void)getData {
-  [AppUtils fetchData:^(NSArray *objects) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      self.dataArray = objects;
-      [self.tableView reloadData];
-    });
-  }];
-}
-
+#pragma mark - UIImagePickerControllerDelegate
 - (void)pickImage:(UIButton *)sender {
   
   UIImagePickerController *picker = [[UIImagePickerController alloc] init];
   picker.delegate = self;
   picker.allowsEditing = YES;
   picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  
   [self presentViewController:picker animated:YES completion:nil];
   
 }
-
-#pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   
@@ -175,22 +122,76 @@
   
 }
 
+#pragma mark - segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)sender {
+  
   if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
     StartStopViewController *destinationVC = (StartStopViewController *)segue.destinationViewController;
     PFObject *object = self.dataArray[sender.row];
     destinationVC.activity = object;
   }
+  
 }
-
 
 #pragma mark - parse commands
 - (void)fetchUserData {
+  
   PFUser *user = [PFUser currentUser];
   NSData *profilePictureData = user[@"image"];
   self.userProfilePicture = [UIImage imageWithData:profilePictureData];
   //self.userName = user[@"firstName"];
   [self.profilePicture setBackgroundImage:self.userProfilePicture forState:UIControlStateNormal];
+  
+}
+
+- (void)getUserData {
+  
+  if ([PFUser currentUser]) {
+    [self refreshDataInTable];
+    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    if (isLinkedToFacebook) {
+      [self loadFacebookData];
+    }
+    else {
+      [self fetchUserData];
+    }
+  }
+  
+}
+
+- (void)loadFacebookData {
+  FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
+  [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+    if (!error) {
+      // result is a dictionary with the user's Facebook data
+      NSDictionary *userData = (NSDictionary *)result;
+      
+      NSString *facebookID = userData[@"id"]; //used for picture
+      self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", userData[@"first_name"]];
+      self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
+      NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+      NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+      [NSURLConnection sendAsynchronousRequest:urlRequest
+                                         queue:[NSOperationQueue mainQueue]
+                             completionHandler:
+       ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+         if (connectionError == nil && data != nil) {
+           UIImage *userPhoto = [UIImage imageWithData:data];
+           [self.profilePicture setBackgroundImage:userPhoto forState:UIControlStateNormal];
+         }
+       }];
+    }
+  }];
+  
+}
+
+- (void)refreshDataInTable {
+  [AppUtils fetchData:^(NSArray *objects) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.dataArray = objects;
+      [self.tableView reloadData];
+    });
+  }];
 }
 
 - (void)uploadUserImage:(NSData *)imageData {
@@ -205,15 +206,15 @@
   [activityQuery getObjectInBackgroundWithId:objectId block:^(PFObject *activity, NSError *error){
     [activity deleteInBackground];
     dispatch_async(dispatch_get_main_queue(), ^{
-      [self getData];
+      [self refreshDataInTable];
     });
   }];
 }
 
 - (void)addButtonClicked:(id)sender {
-  [self.activityNameTextField resignFirstResponder];
-  [self.activityNameTextField.text isEqualToString:@""];
   NSString *activityName = self.activityNameTextField.text;
+  [self.activityNameTextField resignFirstResponder];
+  self.activityNameTextField.text = nil;
   PFObject *newActivity = [PFObject objectWithClassName:@"Activity"];
   newActivity[@"name"] = activityName;
   newActivity[@"totalTime"] = @0;
@@ -223,7 +224,7 @@
   [newActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     if (succeeded) {
       [self createNewAlert:@"New activity added" withMessage:@"Your activity has been added!"];
-      [self getData];
+      [self refreshDataInTable];
     } else {
       // There was a problem, check error.description
     }
@@ -232,30 +233,37 @@
 
 
 #pragma mark - UITableView Data Source methods
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
   ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ACTIVITY_CELL" forIndexPath:indexPath];
   PFObject *object = self.dataArray[indexPath.row];
   cell.activityLabel.text = object[@"name"];
   int duration = [object[@"totalTime"] intValue];
   cell.totalTimeLabel.text = [AppUtils formatTimeToString:duration];
   return cell;
+  
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  
   return self.dataArray.count;
+  
 }
 
 #pragma mark - UITableView Delegate methods
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  
   [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:indexPath];
+  
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  
   if (editingStyle == UITableViewCellEditingStyleDelete) {
     NSString *objectId = [self.dataArray[indexPath.row] objectId];
     [self deleteActivity:objectId];
   }
+  
 }
 #pragma mark - PFSignUpViewControllerDelegate
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
@@ -282,7 +290,9 @@
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+  
   [self dismissViewControllerAnimated:true completion:nil];
+  
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
@@ -295,26 +305,34 @@
 
 #pragma mark - PFLoginViewControllerDelegate
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+  
   [self getUserData];
   [self dismissViewControllerAnimated:true completion:nil];
+  
 }
 
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-  //NSLog(@"Error logging in: %@", error);
+  
+  [self createNewAlert:@"Error Logging in" withMessage:@"There was an error logging in, please try again later."];
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+  
   [self dismissViewControllerAnimated:true completion:nil];
+  
 }
 
 #pragma mark - new alert
 //basic function to create new alert with OK button
 - (void)createNewAlert:(NSString *)title withMessage:(NSString *)message {
+  
   UIAlertController *alertView = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *okActionButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
     [self dismissViewControllerAnimated:true completion:nil];
   }];
   [alertView addAction:okActionButton];
   [self presentViewController:alertView animated:true completion:nil];
+  
 }
+
 @end

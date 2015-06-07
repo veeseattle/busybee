@@ -8,20 +8,23 @@
 
 #import "StartStopViewController.h"
 #import "AppUtils.h"
+#import "LogTableViewCell.h"
 #import <Parse/Parse.h>
 
-@interface StartStopViewController() <UITabBarDelegate>
+@interface StartStopViewController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (assign) NSTimeInterval startTime;
 @property (assign) NSDate *start;
 @property (assign) BOOL isRunning;
-@property (strong,nonatomic) UINavigationBar *navBar;
+@property (strong, nonatomic) UINavigationBar *navBar;
+@property (strong, nonatomic) NSArray *logArray;
 
 @property (weak, nonatomic) IBOutlet UIView *customTopView;
 @property (weak, nonatomic) IBOutlet UILabel *topViewStatLabel;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopwatchButton;
 @property (weak, nonatomic) IBOutlet UILabel *activityName;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -42,6 +45,13 @@
   NSString *name = self.activity[@"name"];
   self.activityName.text = [NSString stringWithFormat:@"Now tracking:  %@", name];
   [self.refreshButton addTarget:self action:@selector(getDataForTopView) forControlEvents:UIControlEventTouchUpInside];
+  
+  UINib *nib = [UINib nibWithNibName:@"LogTableViewCell" bundle:nil];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"LOG_CELL"];
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
+  
+  [self fetchLogs];
 }
 
 - (void) getDataForTopView {
@@ -52,6 +62,37 @@
   }];
 }
 
+#pragma mark - UITableViewDataSource
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  LogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LOG_CELL" forIndexPath:indexPath];
+  
+  PFObject *session = self.logArray[indexPath.row];
+  //display trip date in Month dd, yyyy format
+  NSDate *startDate = session[@"startTime"];
+  NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+  [dateFormat setDateFormat:@"MMMM dd, yyyy"];
+  NSString *dateString = [dateFormat stringFromDate:startDate];
+  cell.sessionDateLabel.text = dateString;
+  
+  //calculate and display duration in hours, mins, and secs
+  int elapsed = [session[@"duration"] intValue];
+  float elapsedFloat = [session[@"duration"] floatValue];
+  int hours = (int) (elapsed / 3600);
+  elapsed -= hours * 3600;
+  int mins = (int) (elapsed / 60);
+  elapsed -= mins * 60;
+  int secs = (int) elapsed;
+  NSString *durationString = [NSString stringWithFormat:@"%u h %u m %02u s", hours, mins, secs];
+  cell.sessionDurationLabel.text = durationString;
+  
+  cell.view.alpha = elapsedFloat/3600 * 0.3;
+  
+  return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return self.logArray.count;
+}
 
 #pragma mark - stopwatch functions
 
@@ -104,12 +145,41 @@
   PFObject *session = [PFObject objectWithClassName:@"Session"];
   session[@"startTime"] = startTime;
   session[@"duration"] = [NSNumber numberWithInt:sessionDuration];
+  
+  session[@"activityPointer"] = self.activity;
   [session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     if (succeeded) {
       NSLog(@"success!");
       [self getDataForTopView];
+      [self fetchLogs];
     } else {
       NSLog(@"fail");
+    }
+  }];
+  
+  //save new total time to parent activity
+  PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+  [query getObjectInBackgroundWithId:self.activity.objectId
+                               block:^(PFObject *activity, NSError *error) {
+                                 int activityTotal = [activity[@"totalTime"] intValue];
+                                 activity[@"totalTime"] = [NSNumber numberWithInt:(activityTotal + sessionDuration)];
+                                 [activity saveInBackground];
+                               }];
+  
+}
+
+- (void)fetchLogs {
+  
+  PFQuery *query = [PFQuery queryWithClassName:@"Session"];
+  [query whereKey:@"activityPointer" equalTo:self.activity];
+  [query addDescendingOrder:@"updatedAt"];
+  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if (!error) {
+      self.logArray = objects;
+      [self.tableView reloadData];
+    }
+    else {
+      NSLog(@"Error: %@ %@", error, [error userInfo]);
     }
   }];
 }

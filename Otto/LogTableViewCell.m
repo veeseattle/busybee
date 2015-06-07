@@ -11,8 +11,6 @@
 @implementation LogTableViewCell
 
 - (void)awakeFromNib {
-  self.view.layer.borderWidth = 1;
-  self.view.layer.borderColor = [[UIColor grayColor] CGColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
