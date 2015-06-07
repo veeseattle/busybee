@@ -55,11 +55,6 @@
     
     [self presentViewController:self.logInViewController animated:YES completion:nil];
   }
-}
-
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  
   if ([PFUser currentUser]) {
     [self getData];
     [self fetchUserData];
@@ -68,6 +63,11 @@
       [self loadUserLoginData];
     }
   }
+}
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
   self.tableView.delegate = self;
