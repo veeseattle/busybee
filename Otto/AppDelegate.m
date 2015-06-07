@@ -10,6 +10,7 @@
 #import "AppUtils.h"
 #import <Parse/Parse.h>
 #import "FBSDKCoreKit/FBSDKCoreKit.h"
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 @interface AppDelegate ()
 
@@ -21,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   // Initialize Parse.
-  [Parse setApplicationId:@"q29iMM7Y2t9qmfheI3LX5agt3eTFvQmUkuGYtYtC" clientKey:@"pcrzLIXaRMb1m3uFlFwaZSoAkGKCHCGpoRxHpTwP"];
+  [Parse setApplicationId:@"bEJfrFMvMLFh29yOgLsLvNL5HB9oMrJaFreCw2V4" clientKey:@"yakPkhvmFrk6heIfESd5xbwt7Ks6tc1NksxnviMu"];
   [PFUser enableRevocableSessionInBackground];
   
   // Track statistics around application opens.
@@ -39,8 +40,10 @@
   
   // Customize default tab bar item appearance
   [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Light" size:13.0], NSFontAttributeName, nil] forState:UIControlStateNormal];
- 
- [self.window setRootViewController:rootController];
+  
+  [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:nil];
+  
+  [self.window setRootViewController:rootController];
   return [[FBSDKApplicationDelegate sharedInstance] application:application
                                   didFinishLaunchingWithOptions:launchOptions];
 }

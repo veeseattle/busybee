@@ -16,6 +16,7 @@
 #import <ParseUI/ParseUI.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addActivityButton;
 @property (weak, nonatomic) IBOutlet UITextField *activityNameTextField;
 @property (strong, nonatomic) NSString *myName;
+@property (weak, nonatomic) IBOutlet UILabel *greetingLabel;
 
 @property (strong, nonatomic) NSArray *dataArray;
 
@@ -59,16 +61,19 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  if ([PFUser currentUser]) {
+    [self getData];
+    [self fetchUserData];
+    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    if (isLinkedToFacebook) {
+      [self loadUserLoginData];
+    }
+  }
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
   self.tableView.rowHeight = 55;
-  
-  if ([PFUser currentUser]) {
-    [self getData];
-    [self fetchUserData];
-  }
   
   if (!self.userProfilePicture) {
     [self.profilePicture setBackgroundImage:[UIImage imageNamed:@"cameraIcon.png"] forState:UIControlStateNormal];
@@ -97,7 +102,9 @@
       NSDictionary *userData = (NSDictionary *)result;
       
       NSString *facebookID = userData[@"id"]; //used for picture
-      NSString *name = userData[@"name"];
+      self.myName = userData[@"first_name"];
+      self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", self.myName];
+      self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
       NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
       NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
       [NSURLConnection sendAsynchronousRequest:urlRequest
@@ -195,7 +202,6 @@
     if (succeeded) {
       [self createNewAlert:@"New activity added" withMessage:@"Your activity has been added!"];
       [self getData];
-      
     } else {
       // There was a problem, check error.description
     }
