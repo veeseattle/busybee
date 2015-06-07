@@ -36,7 +36,7 @@
   self.stopwatchButton.layer.borderWidth = 3;
   [self.stopwatchButton addTarget:self action:@selector(stopwatchButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   
-  [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:14.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
+  [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Light" size:15.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
   
   [self getDataForTopView];
   NSString *name = self.activity[@"name"];
@@ -74,7 +74,7 @@
     int duration = [NSDate timeIntervalSinceReferenceDate] - self.startTime;
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:self.startTime];
     self.lapsedTimeLabel.text = @"0:00:00";
-    //save new trip to Parse
+    //save new session to Parse
     [self addNewActivity:startDate withDuration:duration];
   }
 }
@@ -99,12 +99,12 @@
 
 #pragma mark - Parse Function
 
-- (void)addNewActivity:(NSDate*)startTime withDuration:(int)tripDuration {
+- (void)addNewActivity:(NSDate*)startTime withDuration:(int)sessionDuration {
   
-  PFObject *trip = [PFObject objectWithClassName:@"Trip"];
-  trip[@"startTime"] = startTime;
-  trip[@"duration"] = [NSNumber numberWithInt:tripDuration];
-  [trip saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+  PFObject *session = [PFObject objectWithClassName:@"Session"];
+  session[@"startTime"] = startTime;
+  session[@"duration"] = [NSNumber numberWithInt:sessionDuration];
+  [session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     if (succeeded) {
       NSLog(@"success!");
       [self getDataForTopView];

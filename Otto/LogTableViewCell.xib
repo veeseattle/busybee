@@ -20,13 +20,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkA-UD-Fwi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z56-DL-fBt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z56-DL-fBt">
                                 <rect key="frame" x="8" y="10" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuf-mE-rZ4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuf-mE-rZ4">
                                 <rect key="frame" x="162" y="10" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="BY9-I0-79Q"/>
@@ -97,6 +97,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="endTimeLabel" destination="7cd-MS-V2q" id="CpE-di-RGR"/>
+                <outlet property="sessionDateLabel" destination="z56-DL-fBt" id="BEe-H7-RAj"/>
+                <outlet property="sessionDurationLabel" destination="nuf-mE-rZ4" id="uYe-j7-xrh"/>
                 <outlet property="startTimeLabel" destination="eZC-Vu-x7A" id="6QM-O5-Pik"/>
                 <outlet property="tripDateLabel" destination="z56-DL-fBt" id="t1y-cR-M2g"/>
                 <outlet property="tripDurationLabel" destination="nuf-mE-rZ4" id="Z4q-MA-sKo"/>

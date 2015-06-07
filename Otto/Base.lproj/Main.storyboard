@@ -180,7 +180,7 @@
                     <connections>
                         <outlet property="activityNameTextField" destination="JcW-4o-XXD" id="BUA-EC-TdF"/>
                         <outlet property="addActivityButton" destination="m9t-AN-R7U" id="aEY-yY-XEe"/>
-                        <outlet property="greetingLabel" destination="KUd-sg-EU2" id="NLJ-mQ-DGy"/>
+                        <outlet property="greetingLabel" destination="KUd-sg-EU2" id="9oa-37-hSJ"/>
                         <outlet property="profilePicture" destination="XUE-ZF-6iO" id="1Ix-Y1-cRf"/>
                         <outlet property="tableView" destination="5gU-3w-xj4" id="MDg-ah-9FT"/>
                     </connections>
@@ -301,7 +301,7 @@
         <scene sceneID="SXy-bQ-CP8">
             <objects>
                 <navigationController storyboardIdentifier="SEARCH_VC" automaticallyAdjustsScrollViewInsets="NO" id="b3Y-10-k3y" userLabel="Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Activities" image="home" id="HvW-eS-gco"/>
+                    <tabBarItem key="tabBarItem" title="Current Month" image="busylogo-1" id="HvW-eS-gco"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0b7-2G-oQa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -357,7 +357,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="30" height="30"/>
+        <image name="busylogo-1" width="90" height="26"/>
         <image name="playicon" width="30" height="30"/>
         <image name="simple_bg" width="300" height="200"/>
     </resources>

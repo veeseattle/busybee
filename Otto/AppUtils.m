@@ -13,14 +13,14 @@
 
 #pragma mark - topViewStat method
 
+//given NSDate, return current month (e.g. 6, 5)
 + (NSInteger) getMonth:(NSDate *)date {
-  NSDate *currentDate = [NSDate date];
+  NSDate *currentDate = date;
   NSCalendar *calendar = [NSCalendar currentCalendar];
   NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:currentDate];
   NSInteger currentMonth = [components month];
   return currentMonth;
 }
-
 
 + (NSString *) formatTimeToString:(int)elapsed {
   int hours = (int) (elapsed / 3600);
@@ -28,7 +28,6 @@
   int mins = (int) (elapsed/60);
   elapsed -= mins * 60;
   int secs = (int) elapsed;
-  
   NSString *time = [NSString stringWithFormat:@"%u h %u m %02u s", hours, mins, secs];
   return time;
 }
@@ -36,11 +35,11 @@
 + (NSString *) recalculateTotalForMonth:(NSArray *)dataArray {
   int elapsed = 0;
   
-  //for every trip from Parse, filter for current month and calculate total hours driven
+  //for every session from Parse, filter for current month and calculate total hours
   for (PFObject *data in dataArray) {
-    NSInteger tripMonth = [self getMonth:data.createdAt];
+    NSInteger sessionMonth = [self getMonth:data.createdAt];
     NSInteger currentMonth = [self getMonth:[NSDate date]];
-    if (tripMonth == currentMonth) {
+    if (sessionMonth == currentMonth) {
       elapsed += [data[@"duration"] intValue];
     }
   }

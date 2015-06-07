@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LogTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *tripDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tripDurationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sessionDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sessionDurationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UIView *view;

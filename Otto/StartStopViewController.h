@@ -14,5 +14,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *lapsedTimeLabel;
 @property (strong, nonatomic) PFObject *activity;
 
-
 @end

@@ -55,18 +55,13 @@
     
     [self presentViewController:self.logInViewController animated:YES completion:nil];
   }
-  if ([PFUser currentUser]) {
-    [self getData];
-    [self fetchUserData];
-    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
-    if (isLinkedToFacebook) {
-      [self loadUserLoginData];
-    }
-  }
+
 }
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+
+  [self getUserData];
   
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
@@ -92,8 +87,20 @@
   
 }
 
-- (void)loadUserLoginData {
-  
+- (void)getUserData {
+  if ([PFUser currentUser]) {
+    [self getData];
+    BOOL isLinkedToFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    if (isLinkedToFacebook) {
+      [self loadFacebookData];
+    }
+    else {
+      [self fetchUserData];
+    }
+  }
+}
+
+- (void)loadFacebookData {
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil];
   [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
     if (!error) {
@@ -101,8 +108,7 @@
       NSDictionary *userData = (NSDictionary *)result;
       
       NSString *facebookID = userData[@"id"]; //used for picture
-      self.myName = userData[@"first_name"];
-      self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", self.myName];
+      self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", userData[@"first_name"]];
       self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
       NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
       NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
@@ -169,27 +175,44 @@
   
 }
 
-- (void)uploadUserImage:(NSData *)imageData {
-  
-  PFUser *user = [PFUser currentUser];
-  user[@"image"] = imageData;
-  [user saveInBackground];
-  
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)sender {
+  if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
+    StartStopViewController *destinationVC = (StartStopViewController *)segue.destinationViewController;
+    PFObject *object = self.dataArray[sender.row];
+    destinationVC.activity = object;
+  }
 }
+
 
 #pragma mark - parse commands
 - (void)fetchUserData {
-  
   PFUser *user = [PFUser currentUser];
   NSData *profilePictureData = user[@"image"];
   self.userProfilePicture = [UIImage imageWithData:profilePictureData];
   //self.userName = user[@"firstName"];
   [self.profilePicture setBackgroundImage:self.userProfilePicture forState:UIControlStateNormal];
-  
+}
+
+- (void)uploadUserImage:(NSData *)imageData {
+  PFUser *user = [PFUser currentUser];
+  user[@"image"] = imageData;
+  [user saveInBackground];
+}
+
+- (void)deleteActivity:(NSString *)objectId {
+  PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
+  [activityQuery whereKey:@"owner" equalTo:objectId];
+  [activityQuery getObjectInBackgroundWithId:objectId block:^(PFObject *activity, NSError *error){
+    [activity deleteInBackground];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self getData];
+    });
+  }];
 }
 
 - (void)addButtonClicked:(id)sender {
-  
+  [self.activityNameTextField resignFirstResponder];
+  [self.activityNameTextField.text isEqualToString:@""];
   NSString *activityName = self.activityNameTextField.text;
   PFObject *newActivity = [PFObject objectWithClassName:@"Activity"];
   newActivity[@"name"] = activityName;
@@ -223,18 +246,17 @@
   return self.dataArray.count;
 }
 
+#pragma mark - UITableView Delegate methods
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:indexPath];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)sender {
-  if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
-    StartStopViewController *destinationVC = (StartStopViewController *)segue.destinationViewController;
-    PFObject *object = self.dataArray[sender.row];
-    destinationVC.activity = object;
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (editingStyle == UITableViewCellEditingStyleDelete) {
+    NSString *objectId = [self.dataArray[indexPath.row] objectId];
+    [self deleteActivity:objectId];
   }
 }
-
 #pragma mark - PFSignUpViewControllerDelegate
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
   BOOL informationComplete = YES;
@@ -273,7 +295,7 @@
 
 #pragma mark - PFLoginViewControllerDelegate
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-  [self getData];
+  [self getUserData];
   [self dismissViewControllerAnimated:true completion:nil];
 }
 
