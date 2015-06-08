@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  Otto
+//  busybee
 //
 //  Created by Vania Kurniawati on 5/22/15.
 //  Copyright (c) 2015 vivavania. All rights reserved.
@@ -62,7 +62,7 @@
   
   [super viewDidLoad];
   
-  //[self getUserData];
+  [self getUserData];
   
   UINib *nib = [UINib nibWithNibName:@"ActivityCell" bundle:nil];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"ACTIVITY_CELL"];
@@ -71,7 +71,7 @@
   self.tableView.rowHeight = 50;
   
   if (!self.userProfilePicture) {
-    [self.profilePicture setBackgroundImage:[UIImage imageNamed:@"cameraIcon.png"] forState:UIControlStateNormal];
+    [self.profilePicture setBackgroundImage:[UIImage imageNamed:@"camera.png"] forState:UIControlStateNormal];
   }
   else {
     [self.profilePicture setBackgroundImage:self.userProfilePicture forState:UIControlStateNormal];
@@ -153,11 +153,19 @@
 - (void)fetchUserDataInParse {
   
   PFUser *user = [PFUser currentUser];
+  PFQuery *query = [PFUser query];
+  [query getObjectInBackgroundWithId:user.objectId block:^(PFObject *user, NSError *error){
+  if (!error) {
   NSData *profilePictureData = user[@"image"];
   self.userProfilePicture = [UIImage imageWithData:profilePictureData];
-  //self.userName = user[@"firstName"];
+  self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", user[@"firstName"]];
+  self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
   [self.profilePicture setBackgroundImage:self.userProfilePicture forState:UIControlStateNormal];
-  
+    }
+    else {
+    
+    }
+  }];
 }
 
 - (void)fetchUserDataInFacebook {
@@ -167,7 +175,6 @@
     if (!error) {
       // result is a dictionary with the user's Facebook data
       NSDictionary *userData = (NSDictionary *)result;
-      
       NSString *facebookID = userData[@"id"]; //used for picture
       self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", userData[@"first_name"]];
       self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
