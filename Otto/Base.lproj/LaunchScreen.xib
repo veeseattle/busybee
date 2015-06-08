@@ -56,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="busy bee-logo-white" width="1000" height="661"/>
+        <image name="busy bee-logo-white" width="400" height="264"/>
     </resources>
 </document>

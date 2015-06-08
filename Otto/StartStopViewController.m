@@ -55,11 +55,15 @@
 }
 
 - (void) getDataForTopView {
-  [AppUtils fetchData:@"Session" withBlock:^(NSArray *objects) {
+  
+  PFQuery *query = [PFQuery queryWithClassName:@"Session"];
+  [query whereKey:@"activityPointer" equalTo:self.activity];
+  [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if (!error) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.topViewStatLabel.text = [AppUtils recalculateTotalForMonth:objects];
     });
-  }];
+    }}];
 }
 
 #pragma mark - UITableViewDataSource
