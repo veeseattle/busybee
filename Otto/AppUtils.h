@@ -10,7 +10,7 @@
 
 @interface AppUtils : NSObject
 
-#define globalColor [UIColor colorWithRed:(87.0f/255.0f) green:(205.0f/255.0f) blue:(192.0f/255.0f) alpha:0.8f]
+#define globalColor [UIColor colorWithRed:(96.0f/255.0f) green:(227.0f/255.0f) blue:(212.0f/255.0f) alpha:1.0f]
 
 + (NSInteger) getMonth:(NSDate *)date;
 + (NSString *) formatTimeToString:(int)elapsed;

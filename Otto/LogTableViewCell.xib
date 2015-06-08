@@ -16,7 +16,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkA-UD-Fwi">
                         <rect key="frame" x="8" y="4" width="40" height="40"/>
-                        <color key="backgroundColor" red="0.37670775610000001" green="0.89021070079999998" blue="0.83230318920000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.37647058823529411" green="0.8901960784313725" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="9fP-Ub-cux"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="f1k-cA-01e"/>

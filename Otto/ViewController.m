@@ -342,10 +342,6 @@
   [self dismissViewControllerAnimated:true completion:nil];
 }
 
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
-  //NSLog(@"Failed to sign up...");
-}
-
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
   //NSLog(@"User dismissed the signUpViewController");
 }
@@ -354,10 +350,6 @@
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
   [self getUserData];
   [self dismissViewControllerAnimated:true completion:nil];
-}
-
-- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-  [self createNewAlert:@"Error Logging in" withMessage:@"There was an error logging in, please try again later."];
 }
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {

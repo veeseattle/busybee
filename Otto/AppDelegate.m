@@ -30,7 +30,11 @@
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   
   UINavigationController *rootController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"NAV_VC"];
-  [self.window setRootViewController:rootController];
+  
+  UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"busybeelogo2.png"]];
+  titleView.contentMode = UIViewContentModeScaleAspectFit;
+  rootController.navigationBar.topItem.titleView = titleView;
+  self.window.rootViewController = rootController;
   [self.window makeKeyAndVisible];
   
   // Customize navigation bar appearance
