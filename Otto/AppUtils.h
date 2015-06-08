@@ -15,6 +15,6 @@
 + (NSInteger) getMonth:(NSDate *)date;
 + (NSString *) formatTimeToString:(int)elapsed;
 + (NSString *) recalculateTotalForMonth:(NSArray *)dataArray;
-+ (void)fetchData:(void(^)(NSArray *objects))completionBlock;
++ (void)fetchData:(NSString *)className withBlock:(void(^)(NSArray *objects))completionBlock;
 
 @end

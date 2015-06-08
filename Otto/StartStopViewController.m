@@ -55,7 +55,7 @@
 }
 
 - (void) getDataForTopView {
-  [AppUtils fetchData:^(NSArray *objects) {
+  [AppUtils fetchData:@"Session" withBlock:^(NSArray *objects) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.topViewStatLabel.text = [AppUtils recalculateTotalForMonth:objects];
     });
@@ -116,7 +116,7 @@
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:self.startTime];
     self.lapsedTimeLabel.text = @"0:00:00";
     //save new session to Parse
-    [self addNewActivity:startDate withDuration:duration];
+    [self addNewSession:startDate withDuration:duration];
   }
 }
 
@@ -140,12 +140,12 @@
 
 #pragma mark - Parse Function
 
-- (void)addNewActivity:(NSDate*)startTime withDuration:(int)sessionDuration {
+- (void)addNewSession:(NSDate*)startTime withDuration:(int)sessionDuration {
   
   PFObject *session = [PFObject objectWithClassName:@"Session"];
   session[@"startTime"] = startTime;
   session[@"duration"] = [NSNumber numberWithInt:sessionDuration];
-  
+  session[@"owner"] = [PFUser currentUser];
   session[@"activityPointer"] = self.activity;
   [session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     if (succeeded) {

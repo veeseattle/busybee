@@ -195,8 +195,7 @@
 }
 
 - (void)refreshDataInTable {
-  
-  [AppUtils fetchData:^(NSArray *objects) {
+  [AppUtils fetchData:@"Activity" withBlock:^(NSArray *objects) {
     dispatch_async(dispatch_get_main_queue(), ^{
       self.dataArray = objects;
       [self.tableView reloadData];

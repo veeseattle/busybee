@@ -56,14 +56,14 @@
   [dateFormat setDateFormat:@"MMMM yyyy"];
   NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
   
-  NSString *totalStatLabel = [NSString stringWithFormat:@"%@ | %u h %u m %02u s", dateString, hours, mins, secs];
+  NSString *totalStatLabel = [NSString stringWithFormat:@"Total for %@ | %u h %u m %02u s", dateString, hours, mins, secs];
   return totalStatLabel;
 }
 
 #pragma mark - Parse methods
 
-+ (void)fetchData:(void(^)(NSArray *objects))completionBlock {
-  PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
++ (void)fetchData:(NSString *)className withBlock:(void(^)(NSArray *objects))completionBlock {
+  PFQuery *query = [PFQuery queryWithClassName:className];
   [query whereKey:@"owner" equalTo:[PFUser currentUser]];
   [query addDescendingOrder:@"updatedAt"];
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
