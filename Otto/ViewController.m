@@ -41,7 +41,8 @@
   {
     SignUpViewController *signUpViewController = [[SignUpViewController alloc] init];
     signUpViewController.delegate = self;
-    signUpViewController.fields = PFSignUpFieldsDefault;
+    signUpViewController.fields = PFSignUpFieldsDefault | PFSignUpFieldsAdditional;
+    [signUpViewController.signUpView.additionalField setPlaceholder:@"First Name"];
     
     self.logInViewController = [[LogInViewController alloc] init];
     self.logInViewController.fields = (PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten | PFLogInFieldsFacebook);
@@ -50,6 +51,7 @@
     self.logInViewController.signUpController = signUpViewController;
     
     [self presentViewController:self.logInViewController animated:YES completion:nil];
+    
   }
   
   if ([PFUser currentUser]) {
@@ -155,15 +157,15 @@
   PFUser *user = [PFUser currentUser];
   PFQuery *query = [PFUser query];
   [query getObjectInBackgroundWithId:user.objectId block:^(PFObject *user, NSError *error){
-  if (!error) {
-  NSData *profilePictureData = user[@"image"];
-  self.userProfilePicture = [UIImage imageWithData:profilePictureData];
-  self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", user[@"firstName"]];
-  self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
-  [self.profilePicture setBackgroundImage:self.userProfilePicture forState:UIControlStateNormal];
+    if (!error) {
+      NSData *profilePictureData = user[@"image"];
+      self.userProfilePicture = [UIImage imageWithData:profilePictureData];
+      self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", user[@"firstName"]];
+      self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
+      [self.profilePicture setBackgroundImage:self.userProfilePicture forState:UIControlStateNormal];
     }
     else {
-    
+      
     }
   }];
 }
@@ -332,6 +334,11 @@
 }
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+  NSString *firstName = signUpController.signUpView.additionalField.text;
+  user[@"firstName"] = firstName;
+  [user saveInBackground];
+  self.greetingLabel.text = [NSString stringWithFormat:@"Hi, %@!", firstName];
+  self.greetingLabel.font = [UIFont fontWithName:@"Georgia" size:24.0];
   [self dismissViewControllerAnimated:true completion:nil];
 }
 

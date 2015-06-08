@@ -37,6 +37,7 @@
   [[UINavigationBar appearance] setTranslucent:false];
   [[UINavigationBar appearance] setBarTintColor:globalColor];
   [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Helvetica-Light" size:15.0], NSFontAttributeName, nil]];
+  [UINavigationBar appearance].tintColor = [UIColor whiteColor];
   
   // Customize default font for labels
   [[UILabel appearance] setFont:[UIFont fontWithName:@"Helvetica-Light" size:15.0]];

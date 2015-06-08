@@ -47,6 +47,13 @@
                                                      fieldFrame.size.height)];
   yOffset += fieldFrame.size.height;
   
+  [self.signUpView.additionalField setFrame:CGRectMake(fieldFrame.origin.x + 5.0f,
+                                                       fieldFrame.origin.y + yOffset,
+                                                       fieldFrame.size.width - 10.0f,
+                                                       fieldFrame.size.height)];
+  
+  yOffset += fieldFrame.size.height;
+  
   [self.signUpView.passwordField setFrame:CGRectMake(fieldFrame.origin.x + 5.0f,
                                                      fieldFrame.origin.y + yOffset,
                                                      fieldFrame.size.width - 10.0f,
